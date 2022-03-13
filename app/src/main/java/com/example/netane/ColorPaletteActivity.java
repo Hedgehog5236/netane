@@ -209,6 +209,7 @@ public class ColorPaletteActivity extends AppCompatActivity implements View.OnCl
         if (counter == num_color) {
             buttonClickable(false);
             if (clearCheck()) {
+                stopTimer();
                 clearText.setText(String.format("Clear! %d%% Match", matchRate));
                 // Nextボタンを有効
                 buttonNext.setText("Next");
@@ -248,7 +249,6 @@ public class ColorPaletteActivity extends AppCompatActivity implements View.OnCl
                 };
                 hdl.postDelayed(rnb, 1500);
             }
-            stopTimer();
         }
         // 残り混色回数を設定
         paletteCount.setText(String.format("残り%d色", num_color - counter)); // 残り何色か
