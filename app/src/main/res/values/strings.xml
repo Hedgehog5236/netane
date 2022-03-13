@@ -1,0 +1,24 @@
+<resources>
+    <!--共通-->
+    <string name="app_name">netane</string>
+    <string name="title_Puzzle">Puzzle Game</string>
+    <string name="title_Sinkei">神経衰弱</string>
+    <string name="title_theme">会話ネタ</string>
+    <string name="title_news">時事ネタ</string>
+    <string name="title_color">Color Palette</string>
+    <string name="btn_start_game">START</string>
+    <string name="text_back">戻る</string>
+    <!--Puzzle-->
+    <string name="Puzzle_text">パズルの大きさ設定</string>
+    <string name="text_col">縦：</string>
+    <string name="text_row">横：</string>
+    <string name="dialog_writeNumber">整数値を入力してください</string>
+    <string name="dialog_writePositive">2以上の数値を入力してください</string>
+    <string name="text_clearTime">CLEAR TIME :</string>
+    <string name="btn_update">シャッフル</string>
+    <!--神経衰弱-->
+    <!--会話ネタ-->
+    <!--時事ネタ-->
+    <!--Color Palette-->
+    <string name="btn_reStart">Palette\nReset</string>
+</resources>

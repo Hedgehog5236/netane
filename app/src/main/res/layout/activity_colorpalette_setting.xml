@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".ColorPaletteSettingActivity"
+    android:weightSum="9">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.4"
+        android:text="@string/text_back"
+        android:textSize="24sp"
+        android:onClick="tapBack"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"></TextView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fontFamily="@font/montserrat_alternates_medium_italic"
+        android:text="Color Palette"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fontFamily="@font/montserrat_alternates_medium_italic"
+        android:text="Tap the number of Level"
+        android:textSize="25dp"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:weightSum="5"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/Level1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:fontFamily="@font/montserrat_alternates_medium_italic"
+                    android:onClick="ColorPalette"
+                    android:text="Level 1"
+                    android:textColor="@color/black"
+                    android:textSize="30dp"
+
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="10dp"
+                    app:strokeColor="@color/lime_green"
+                    app:strokeWidth="3dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/Level2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:fontFamily="@font/montserrat_alternates_medium_italic"
+                    android:onClick="ColorPalette"
+                    android:text="Level 2"
+                    android:textColor="@color/black"
+                    android:textSize="30dp"
+
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="10dp"
+                    app:strokeColor="@color/green"
+                    app:strokeWidth="3dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/Level3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:fontFamily="@font/montserrat_alternates_medium_italic"
+                    android:onClick="ColorPalette"
+                    android:text="Level 3"
+                    android:textColor="@color/black"
+                    android:textSize="30dp"
+
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="10dp"
+                    app:strokeColor="@color/blue"
+                    app:strokeWidth="3dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/Level4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:fontFamily="@font/montserrat_alternates_medium_italic"
+                    android:onClick="ColorPalette"
+                    android:text="Level 4"
+                    android:textColor="@color/black"
+                    android:textSize="30dp"
+
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="10dp"
+                    app:strokeColor="@color/pink"
+                    app:strokeWidth="3dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/Level5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:fontFamily="@font/montserrat_alternates_medium_italic"
+                    android:onClick="ColorPalette"
+                    android:text="Level 5"
+                    android:textColor="@color/black"
+                    android:textSize="30dp"
+
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="10dp"
+                    app:strokeColor="@color/red"
+                    app:strokeWidth="3dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:weightSum="5"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:fontFamily="@font/montserrat_alternates_medium_italic"
+                    android:text="Mix 1 color"
+                    android:textSize="25dp"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:fontFamily="@font/montserrat_alternates_medium_italic"
+                    android:text="Mix 2 color"
+                    android:textSize="25dp"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:fontFamily="@font/montserrat_alternates_medium_italic"
+                    android:text="Mix 3 color"
+                    android:textSize="25dp"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:fontFamily="@font/montserrat_alternates_medium_italic"
+                    android:text="Mix 4 color"
+                    android:textSize="25dp"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:fontFamily="@font/montserrat_alternates_medium_italic"
+                    android:text="Mix 5 color"
+                    android:textSize="25dp"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Viewの角を丸くする -->
+    <corners android:radius="15dp" />
+    <!-- Viewの色を指定する -->
+    <solid android:color="#ef9a9a" />
+</shape>
