@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1845" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/drawable-v24/rounded_button_.xml" value="0.171" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/drawable-v24/rounded_button_blue.xml" value="0.171" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/drawable-v24/rounded_button_pink.xml" value="0.171" />
@@ -26,7 +27,7 @@
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/font/marko_one.xml" value="0.14010416666666667" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_colorpalette.xml" value="0.264" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_colorpalette_setting.xml" value="0.264" />
-        <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_concentraion.xml" value="0.21240942028985507" />
+        <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_concentraion.xml" value="0.264" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_game.xml" value="0.21240942028985507" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_hitblow.xml" value="0.2359375" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_main.xml" value="0.264" />
