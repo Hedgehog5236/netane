@@ -4,10 +4,11 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ThemeSettingActivity extends AppCompatActivity {
+public class HitBlowSettingActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_theme_setting);
+        setContentView(R.layout.activity_hitblow_setting);
     }
 }

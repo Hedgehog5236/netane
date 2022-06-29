@@ -3,6 +3,8 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/margarine</item>
         <item>@font/marko_one</item>
+        <item>@font/montserrat_alternates_bold_italic</item>
         <item>@font/montserrat_alternates_medium_italic</item>
+        <item>@font/montserrat_alternates_semibold_italic</item>
     </array>
 </resources>

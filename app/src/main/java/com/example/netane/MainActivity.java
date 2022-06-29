@@ -36,12 +36,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Theme(View view) {
-        Intent theme_setting = new Intent(MainActivity.this,ThemeSettingActivity.class);
+        Intent theme_setting = new Intent(MainActivity.this,ThemeActivity.class);
         startActivity(theme_setting);
     }
 
-    public void News(View view) {
-        Intent news_setting = new Intent(MainActivity.this,NewsSettingActivity.class);
+    public void HighLow(View view) {
+        Intent news_setting = new Intent(MainActivity.this,HighLowActivity.class);
         startActivity(news_setting);
     }
 }

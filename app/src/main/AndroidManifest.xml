@@ -23,13 +23,17 @@
         <activity android:name=".ColorPaletteActivity" ></activity>
         <activity android:name=".ColorPaletteSettingActivity" ></activity>
         <activity android:name=".ConcentrationActivity" ></activity>
+        <activity android:name=".HitBlowSettingActivity" ></activity>
         <activity android:name=".HitBlowActivity" ></activity>
-        <activity android:name=".NewsActivity" ></activity>
-        <activity android:name=".NewsSettingActivity" ></activity>
+        <activity android:name=".HighLowActivity" ></activity>
         <activity android:name=".ThemeActivity" ></activity>
-        <activity android:name=".ThemeSettingActivity" ></activity>
+        <activity android:name=".ThemeSettingsActivity" ></activity>
 
-<!--        <meta-data-->
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <!--        <meta-data-->
 <!--            android:name="preloaded_fonts"-->
 <!--            android:resource="@array/preloaded_fonts" />-->
     </application>

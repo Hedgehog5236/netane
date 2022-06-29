@@ -18,7 +18,51 @@
     <string name="btn_update">シャッフル</string>
     <!--神経衰弱-->
     <!--会話ネタ-->
-    <!--時事ネタ-->
+    <array name="seeds">
+        <item >@array/trip</item>
+        <item >@array/trend</item>
+        <item >@array/secret</item>
+    </array>
+
+    <array name="genre_name">
+        <item >Trip</item>
+        <item >Trend</item>
+        <item >Secret</item>
+    </array>
+
+    <string-array name="trip">
+        <item>旅先で遭遇したハプニング</item>
+        <item>一番楽しかった旅行先</item>
+        <item>修学旅行どこいった？</item>
+    </string-array>
+
+    <string-array name="trend">
+        <item>最近のマイブーム</item>
+        <item>今一番欲しいモノ</item>
+        <item>最近気になっているニュース</item>
+    </string-array>
+
+    <string-array name="secret">
+        <item>実は私〇〇が得意or苦手</item>
+        <item>実は隠していた今だから言えること</item>
+        <item>親や〇〇さんには言えないこと</item>
+    </string-array>
+
+
     <!--Color Palette-->
     <string name="btn_reStart">Palette\nReset</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
 </resources>
