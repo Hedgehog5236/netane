@@ -14,7 +14,6 @@
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/drawable/circle_button.xml" value="0.208" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/drawable/circle_icon.xml" value="0.137" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/drawable/gradient_button.xml" value="0.1845" />
-        <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/drawable/gradient_button_red.xml" value="0.2365" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/drawable/green_circle_button.xml" value="0.2305" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/drawable/gtadient_button.xml" value="0.1845" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/drawable/hole.xml" value="0.1845" />
@@ -25,26 +24,26 @@
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/drawable/rounded_button.xml" value="0.208" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/drawable/rounded_button_limegreen.xml" value="0.2475" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/drawable/test.xml" value="0.1845" />
-        <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/drawable/title_gradient.xml" value="0.2365" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/font/marko_one.xml" value="0.14010416666666667" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_colorpalette.xml" value="0.264" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_colorpalette_setting.xml" value="0.264" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_concentraion.xml" value="0.264" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_game.xml" value="0.21240942028985507" />
-        <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_highlow.xml" value="0.264" />
-        <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_hitblow.xml" value="0.264" />
-        <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_hitblow_setting.xml" value="0.25" />
+        <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_hitblow.xml" value="0.2359375" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_news.xml" value="0.21240942028985507" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_news_setting.xml" value="0.21240942028985507" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_puzzle.xml" value="0.264" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_puzzle_setting.xml" value="0.21240942028985507" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_setting.xml" value="0.21240942028985507" />
-        <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_theme.xml" value="0.264" />
-        <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_theme_setting.xml" value="0.2" />
+        <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_theme.xml" value="0.21240942028985507" />
+        <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_theme_setting.xml" value="0.21240942028985507" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/circulbutton.xml" value="0.2359375" />
-        <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/fragment_setting.xml" value="0.25" />
-        <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/xml/root_preferences.xml" value="0.152" />
+        <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/layout/activity_colorpalette.xml" value="0.3625" />
+        <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/layout/activity_main.xml" value="0.3625" />
+        <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/layout/activity_setting.xml" value="0.33" />
+        <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/layout/activity_theme.xml" value="0.33" />
+        <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/xml/root_preferences.xml" value="0.15260416666666668" />
       </map>
     </option>
   </component>

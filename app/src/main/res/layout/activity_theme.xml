@@ -7,7 +7,10 @@
     tools:context=".ThemeActivity"
     android:orientation="vertical"
     android:weightSum="9"
-    android:background="@drawable/mountain_sky">
+    android:background="@drawable/mountain_sky"
+    android:clickable="true"
+    android:id="@+id/theme_screen"
+    android:focusable="true">
 
     <TextView
         android:layout_width="wrap_content"
@@ -15,6 +18,7 @@
         android:onClick="tapBack"
         android:text="@string/text_back"
         android:textSize="24dp"
+        android:fontFamily="@font/montserrat_alternates_medium_italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -23,7 +27,23 @@
         app:layout_constraintVertical_bias="0.0">
     </TextView>
 
+    <TextView
+        android:id="@+id/theme_header_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_alternates_medium_italic"
+        android:text=""
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+    </TextView>
+
     <ImageButton
+        android:id="@+id/imageButton"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="@drawable/setting"
@@ -40,17 +60,20 @@
         android:id="@+id/topic_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="topic"
+        android:text="Tap screen to start"
         android:textSize="30dp"
+        android:fontFamily="@font/montserrat_alternates_medium_italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.261">
+        app:layout_constraintVertical_bias="0.261"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal">
     </TextView>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appCompatButton2"
+        android:id="@+id/hide_topic"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:background="@drawable/gradient_button_red"
@@ -58,6 +81,7 @@
         android:onClick="tapHide"
         android:text="Hide"
         android:textSize="15dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.111"
@@ -67,7 +91,7 @@
     </androidx.appcompat.widget.AppCompatButton>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appCompatButton"
+        android:id="@+id/next_topic"
         android:layout_width="230dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
@@ -76,6 +100,7 @@
         android:onClick="tapNext"
         android:text="Next topic"
         android:textSize="25dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.845"

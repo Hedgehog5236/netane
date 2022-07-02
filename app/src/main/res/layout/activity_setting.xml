@@ -8,20 +8,48 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1.2"
+        android:weightSum="5"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:onClick="tapBack"
             android:text="@string/text_back"
-            android:textSize="24dp">
+            android:textSize="24dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_alternates_medium_italic">>
         </TextView>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Setting"
+            android:textSize="28dp"
+            android:id="@+id/settings_header_center"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_alternates_medium_italic">
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/settings_header_right"
+            android:orientation="horizontal"
+            android:gravity="center">
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="19"
+        android:layout_weight="18.8"
         android:id="@+id/settings_container"
         android:orientation="vertical">
     </LinearLayout>

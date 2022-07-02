@@ -31,7 +31,7 @@
     </array>
 
     <string-array name="trip">
-        <item>旅先で遭遇したハプニング</item>
+        <item>旅先で遭遇した\nハプニング</item>
         <item>一番楽しかった旅行先</item>
         <item>修学旅行どこいった？</item>
     </string-array>
@@ -39,13 +39,13 @@
     <string-array name="trend">
         <item>最近のマイブーム</item>
         <item>今一番欲しいモノ</item>
-        <item>最近気になっているニュース</item>
+        <item>最近気になっている\nニュース</item>
     </string-array>
 
     <string-array name="secret">
         <item>実は私〇〇が得意or苦手</item>
-        <item>実は隠していた今だから言えること</item>
-        <item>親や〇〇さんには言えないこと</item>
+        <item>実は隠していた\n今だから言えること</item>
+        <item>親や〇〇さんには\n言えないこと</item>
     </string-array>
 
 
