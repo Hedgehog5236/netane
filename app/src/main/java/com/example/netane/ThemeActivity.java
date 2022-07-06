@@ -21,7 +21,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -44,6 +43,8 @@ public class ThemeActivity extends AppCompatActivity {
     List<Integer> genre_index_candidates, IntList;
     List<String> temp_list;
     Set<String> value, temp;
+    Handler handler;
+    Runnable r;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -198,6 +199,17 @@ public class ThemeActivity extends AppCompatActivity {
         left_bottom.setVisibility(View.INVISIBLE);
         right_bottom.setVisibility(View.INVISIBLE);
         screen.setClickable(false);
+
+        // ランダム表示
+//        viewRandom();
+//        Log.d("Random_show", "Finish");
+        // topicを表示
+        showTopic();
+        Log.d("Topic_show", "Finish");
+
+    }
+
+    public void showTopic(){
         if (genre_index_candidates.size() != 0){
             // topicを選択
             select_genre_index =  (int) (Math.random() * (genre_index_candidates.size())); // 選択肢が残っているジャンルのリストの何番目の数字を選択するか
@@ -211,15 +223,13 @@ public class ThemeActivity extends AppCompatActivity {
             genre = getResources().getStringArray(resourceId);
 
 //            // 残っているtopicのkeyのindex一覧を表示
-            Log.d("candidates", String.valueOf(candidates));
+//            Log.d("candidates", String.valueOf(candidates));
 //            // 選択肢が残っているジャンルのindex番号一覧を表示
 //            Log.d("genre of choices", String.valueOf(genre_index_candidates));
 //            // 選ばれたtopicの二次元index
 //            Log.d("choice index", "[" + String.valueOf(genre_index) + ": " + genre_name.getString(genre_index) + ", " + String.valueOf(topic_index) + "]");
 //            // 選ばれたtopicを表示
-//            Log.d("select", genre[topic_index]);
-
-            viewRandom();
+            Log.d("select", genre[topic_index]);
 
             // topicを表示
             topic_title.setText(genre_name.getString(genre_index));
@@ -328,8 +338,8 @@ public class ThemeActivity extends AppCompatActivity {
     }
 
     public void viewRandom(){
-        final Handler handler = new Handler();
-        final Runnable r = new Runnable() {
+        handler = new Handler();
+        r = new Runnable() {
             int counter = 0;
             @Override
             public void run() {
