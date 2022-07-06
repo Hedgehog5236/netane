@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -9,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1.2"
-        android:weightSum="5"
+        android:weightSum="7"
         android:gravity="center"
         android:orientation="horizontal"
         android:layout_gravity="center">
@@ -24,6 +25,12 @@
             android:fontFamily="@font/montserrat_alternates_medium_italic">
         </TextView>
 
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+        </Space>
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -35,14 +42,19 @@
             android:fontFamily="@font/montserrat_alternates_medium_italic">
         </TextView>
 
-        <LinearLayout
+        <Switch
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:id="@+id/settings_header_right"
+            android:layout_weight="2"
+            android:id="@+id/settings_header_switch"
             android:orientation="horizontal"
-            android:gravity="center">
-        </LinearLayout>
+            android:gravity="center"
+            android:text="All\nTopic"
+            android:textSize="15sp"
+            android:visibility="invisible"
+            android:fontFamily="@font/montserrat_alternates_medium_italic"
+            tools:ignore="UseSwitchCompatOrMaterialXml">
+        </Switch>
 
     </LinearLayout>
 
