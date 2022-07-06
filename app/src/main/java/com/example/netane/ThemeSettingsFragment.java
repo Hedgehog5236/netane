@@ -82,7 +82,7 @@ public class ThemeSettingsFragment extends PreferenceFragmentCompat {
             TempIndividualSelect.setEntries(genre);
             TempIndividualSelect.setEntryValues(strArray);
             Set<String> items = new HashSet<>(Arrays.asList(strArray));
-//            TempIndividualSelect.setDefaultValue(items);
+            TempIndividualSelect.setDefaultValue(items);
             category_individual.addPreference(TempIndividualSelect); //categoryにPreferenceを追加
             TempIndividualSelect.setDependency(genre_name.getString(i)); // categoryにPreferenceを追加した後でdependencyを追加しないとエラーが出る！！
         }

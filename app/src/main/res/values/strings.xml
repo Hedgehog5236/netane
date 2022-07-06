@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--共通-->
     <string name="app_name">netane</string>
@@ -19,35 +20,358 @@
     <!--神経衰弱-->
     <!--会話ネタ-->
     <array name="seeds">
-        <item >@array/trip</item>
-        <item >@array/trend</item>
-        <item >@array/secret</item>
+        <item >@array/Trip</item>
+        <item >@array/Trend</item>
+        <item >@array/Secret</item>
+        <item >@array/Music</item>
+        <item >@array/Proud</item>
+        <item >@array/Family</item>
+        <item >@array/Experience</item>
+        <item >@array/School</item>
+        <item >@array/Hobby</item>
+        <item >@array/Food</item>
+        <item >@array/Life</item>
+        <item >@array/HomeTown</item>
+        <item >@array/Problem</item>
+        <item >@array/Love</item>
+        <item >@array/Friends</item>
+        <item >@array/Animal</item>
+        <item >@array/Work</item>
+        <item >@array/IF</item>
+        <item >@array/Which</item>
+        <item >@array/Movie</item>
+        <item >@array/Quiz</item>
+        <item >@array/Psychology</item>
     </array>
 
     <array name="genre_name">
         <item >Trip</item>
         <item >Trend</item>
         <item >Secret</item>
+        <item >Music</item>
+        <item >Proud</item>
+        <item >Family</item>
+        <item >Experience</item>
+        <item >School</item>
+        <item >Hobby</item>
+        <item >Food</item>
+        <item >Life</item>
+        <item >HomeTown</item>
+        <item >Problem</item>
+        <item >Love</item>
+        <item >Friends</item>
+        <item >Animal</item>
+        <item >Work</item>
+        <item >IF</item>
+        <item >Which</item>
+        <item >Movie</item>
+        <item >Quiz</item>
+        <item >Psychology</item>
     </array>
 
-    <string-array name="trip">
+    <string-array name="Trip">
         <item>旅先で遭遇した\nハプニング</item>
-        <item>一番楽しかった旅行先</item>
+        <item>楽しかった旅行先</item>
         <item>修学旅行どこいった？</item>
     </string-array>
 
-    <string-array name="trend">
+    <string-array name="Trend">
         <item>最近のマイブーム</item>
         <item>今一番欲しいモノ</item>
         <item>最近気になっている\nニュース</item>
+        <item>最近ハマっている\nYouTuber</item>
+        <item>最近ハマっている\nゲーム</item>
+        <item>最近ハマっている\n本</item>
+        <item >挑戦してみたいこと</item>
     </string-array>
 
-    <string-array name="secret">
-        <item>実は私〇〇が得意or苦手</item>
-        <item>実は隠していた\n今だから言えること</item>
-        <item>親や〇〇さんには\n言えないこと</item>
+    <string-array name="Secret">
+        <item>実は〇〇が得意</item>
+        <item>実は〇〇が苦手</item>
+        <item>今だから言えること</item>
+        <item>親や友達には言えないこと</item>
     </string-array>
 
+    <string-array name="Music">
+        <item>好きなアーティスト</item>
+        <item>平成にヒットした曲といえば？</item>
+        <item>恋愛ソングといえば？</item>
+        <item>ゲレンデソングといえば？</item>
+        <item>昭和にヒットした曲といえば？</item>
+        <item>中学・高校の合唱祭で\n歌った曲</item>
+        <item>合唱曲といえば？</item>
+        <item>カラオケでは何を歌う？</item>
+        <item>アニメソングといえば？</item>
+        <item>福山雅治の代表曲といえば？</item>
+        <item>スキマスイッチの代表曲といえば？</item>
+        <item>西野カナの代表曲といえば？</item>
+        <item>BUMP OF CHICKENの\n代表曲といえば？</item>
+        <item>米津玄師の代表曲といえば？</item>
+        <item>Mr.Childrenの代表曲といえば？</item>
+        <item >スキマスイッチの代表曲といえば？</item>
+        <item >洋楽で好きな曲</item>
+        <item >星野源の代表曲といえば？</item>
+        <item >乃木坂46の代表曲といえば？</item>
+        <item >サザン・オールスターズの代表曲といえば？</item>
+        <item >ORANGE RANGEの代表曲といえば？</item>
+        <item >UVERworldの代表曲といえば？</item>
+        <item >Mrs.GREEN APPLEの\n代表曲といえば？</item>
+        <item >応援ソングといえば？</item>
+        <item >あいみょんの代表曲といえば？</item>
+        <item >いきものがかりの代表曲といえば？</item>
+        <item >コブクロの代表曲といえば？</item>
+        <item >YOASOBIの代表曲といえば？</item>
+        <item >ヨルシカの代表曲といえば？</item>
+        <item >WANIMAの代表曲といえば？</item>
+        <item >MAN WITH A MISSIONの\n代表曲といえば？</item>
+        <item >緑黄色野菜の代表曲といえば？</item>
+        <item >[Alexandros]の代表曲といえば？</item>
+        <item >Aqua Timezの代表曲といえば？</item>
+        <item >SEKAI NO OWARIの\n代表曲といえば？</item>
+        <item >YUIの代表曲といえば？</item>
+        <item >きゃりーぱみゅぱみゅの代表曲といえば？</item>
+        <item >ボカロ曲といえば？</item>
+        <item >back numberの代表曲といえば？</item>
+        <item >UNISON SQUARE GARDENの\n代表曲といえば？</item>
+        <item >Official髭男dismの代表曲といえば？</item>
+        <item >サカナクションの代表曲といえば？</item>
+        <item >ASIAN KUNG-FU GENERATIONの\n代表曲といえば？</item>
+        <item >ポルノグラフィティの代表曲といえば？</item>
+        <item >Adoの代表曲といえば？</item>
+        <item >変態紳士クラブの代表曲といえば？</item>
+        <item >SPYAIRの代表曲といえば？</item>
+        <item >B\'zの代表曲といえば？</item>
+        <item >ヤバイTシャツ屋さんの\n代表曲といえば？</item>
+        <item >One directionの代表曲といえば？</item>
+        <item >スピッツの代表曲といえば？</item>
+        <item >嵐の代表曲といえば？</item>
+        <item >SMAPの代表曲といえば？</item>
+        <item >GreeeeNの代表曲といえば？</item>
+        <item >東京事変の代表曲といえば？</item>
+        <item >RADWIMPSの代表曲といえば？</item>
+        <item >ONE OK ROCKの代表曲といえば？</item>
+        <item >LiSAの代表曲といえば？</item>
+        <item >Perfumeの代表曲といえば？</item>
+        <item >ゴールデンボンバーの\n代表曲といえば？</item>
+        <item >平井堅の代表曲といえば？</item>
+        <item >湘南乃風の代表曲といえば？</item>
+        <item >卒業ソングといえば？</item>
+    </string-array>
+
+    <string-array name="Proud">
+        <item>〇〇の賞を取ったことがある</item>
+        <item>得意な教科は？</item>
+        <item>今までで最も長く続けたこと</item>
+        <item>今までで最も高い買い物は？</item>
+        <item>得意なスポーツ・芸術</item>
+    </string-array>
+
+    <string-array name="Family">
+        <item>親戚にいる最高齢は何歳？</item>
+        <item>兄弟・姉妹はいる？</item>
+        <item>親の職業は？</item>
+        <item>我が家の変わったルール</item>
+        <item>我が家のごちそう</item>
+        <item>家族とのとっておきの思い出</item>
+        <item>家族の変なクセ</item>
+        <item>家族と喧嘩したエピソード</item>
+    </string-array>
+
+    <string-array name="Experience">
+        <item>死にかけたことは？</item>
+        <item>今までで最も悲しかったこと</item>
+        <item>今までで最も楽しかったこと</item>
+        <item>ギリギリセーフだったエピソード</item>
+        <item>ギリギリアウトだったエピソード</item>
+        <item>今までで最も痛かったケガは？</item>
+        <item>今までで最も怖かったこと</item>
+        <item>遊園地といえば？</item>
+        <item>最近挑戦したこと</item>
+        <item>泣いてしまったエピソード</item>
+        <item>人生の失敗談</item>
+        <item>もう二度としたくないこと</item>
+        <item>イラッとしたこと</item>
+        <item>やってしまったと感じたこと</item>
+        <item>三日坊主で終わったこと</item>
+        <item>人生やり直せるなら\nいつの自分に戻りたい？</item>
+    </string-array>
+
+    <string-array name="School">
+        <item>幼稚園の頃の一番の思い出</item>
+        <item>小学校の頃の一番の思い出</item>
+        <item>中学校の頃の一番の思い出</item>
+        <item>高校の頃の一番の思い出</item>
+        <item>高校卒業後の一番の思い出</item>
+        <item>中学のときの友達との思い出</item>
+        <item>高校の時の友達との思い出</item>
+        <item>学生時代の怖かった先生</item>
+        <item>学生時代の好きだった先生</item>
+        <item>学生時代の変わった先生</item>
+        <item>夏休みの自由研究なにした？</item>
+        <item>好きだった教科</item>
+        <item>嫌いだった教科</item>
+        <item>小・中・高の校歌歌える？</item>
+        <item>経験したことがあるアルバイト</item>
+        <item >学生時代の事件</item>
+        <item >学生時代の部活・サークル</item>
+        <item >変わった同級生</item>
+        <item >学生時代のあだ名</item>
+        <item >習い事何してた？</item>
+    </string-array>
+
+    <string-array name="Hobby">
+        <item>一番の趣味は？</item>
+        <item>休みの日は何してる？</item>
+        <item>おすすめの趣味は？</item>
+        <item >好きなスポーツ</item>
+        <item >好きな漫画・アニメ</item>
+    </string-array>
+
+    <string-array name="Food">
+        <item>好きな食べ物は？</item>
+        <item>嫌い・苦手な食べ物は？</item>
+        <item>前は好きだったけど\n今はそうでもない食べ物</item>
+        <item>好きな飲み物</item>
+    </string-array>
+
+    <string-array name="Life">
+        <item>これがないと生きていけないもの</item>
+        <item>どうしても捨てられないもの</item>
+        <item>いつも何時に寝て何時に起きる？</item>
+    </string-array>
+
+    <string-array name="HomeTown">
+        <item>地元のおすすめの場所</item>
+        <item>地元の思い出の場所</item>
+        <item>地元の名産</item>
+        <item>地元出身の有名人</item>
+    </string-array>
+
+    <string-array name="Problem">
+        <item>生活の悩み</item>
+        <item>交友関係の悩み</item>
+        <item>眠れないときってどうしてる？</item>
+        <item>イライラした時ってどうしてる？</item>
+        <item>暇なときってどうしてる？</item>
+    </string-array>
+
+    <string-array name="Love">
+        <item>今まで付き合った人の人数は？</item>
+        <item>好きな異性のタイプ</item>
+        <item>嫌いな異性のタイプ</item>
+        <item>初デートはどこがいい？</item>
+        <item>恋人と会う理想の頻度は？</item>
+    </string-array>
+
+    <string-array name="Friends">
+        <item>すごい特技を持った友達</item>
+        <item>友達との一番の思い出</item>
+        <item>友達にお金を貸してと言われた．\nあなたならどうする？</item>
+    </string-array>
+
+    <string-array name="Animal">
+        <item>好きな動物</item>
+        <item>自分を動物に例えるなら？</item>
+        <item>ペットを\n飼っている/飼っていた.</item>
+        <item>ペットにするなら何がいい？</item>
+    </string-array>
+
+    <string-array name="Work">
+        <item>仕事は何してる？</item>
+        <item>上司はどんな人？</item>
+        <item>出勤時刻は？</item>
+        <item>かっこいいと思う職業は？</item>
+    </string-array>
+
+    <string-array name="IF">
+        <item>ドラえもんの道具を\n一つ借りれるとしたら？</item>
+        <item>タイムマシンがあったら\nどの時代に行きたい？</item>
+        <item>魔法が使えるとしたら何がいい？</item>
+        <item>もしあなたが総理大臣になったら\n何をしたい？</item>
+    </string-array>
+
+    <string-array name="Which">
+        <item>犬派？猫派？</item>
+        <item>友達と恋人が困っている！\n助けるならどっちから？</item>
+        <item>お風呂で先に洗うのは\n頭？体？</item>
+    </string-array>
+
+    <string-array name="Movie">
+        <item>ジブリ映画といえば？</item>
+        <item>Disney映画といえば？</item>
+        <item>洋画は字幕・吹き替えどっちを見る？</item>
+        <item>エンドロールは最後まで見る？</item>
+    </string-array>
+
+    <string-array name="Quiz">
+        <item>1  1  5  8\n+，-，✕，÷，()を使って\n答えが10になる数式を完成させよ\n</item>
+        <item>一時間を測れる線香が2本あります．\n45分を測るにはどうすればいい？</item>
+        <item>海苔と卵，思わず買いそうになるのは？</item>
+        <item>ジェイソン，ドラキュラ，透明人間．\nこの中で仕事をしていないのは？</item>
+        <item>ボンドではくっつく，接着剤ではくっつかない．\nこれなんだ？</item>
+        <item>みんなが褒める食べ物は？</item>
+        <item>簡単に動かせるけど\n絶対に持ち上げられないものってなんだ？</item>
+        <item>十月十日を漢字一文字で表すと？</item>
+    </string-array>
+
+    <string-array name="QuizAnswer">
+        <item>8 ÷ (1 – 1 ÷ 5)</item>
+        <item>1. 1本の線香の両端と，もう一本の線香の片方の\n   計3箇所に火を同時に付ける\n2. 両端に火をつけた線香が燃え尽きたら，\n   もう一本の線香の片方に火をつける\n3. 全て燃え尽きたら45分</item>
+        <item>海藻(買いそう)\nなんちって</item>
+        <item>透明人間\n無色・・・無職</item>
+        <item>唇\n声に出してみると…</item>
+        <item>ステーキ\n素敵…なんちって\n天才(甜菜)もおっけー</item>
+        <item>影</item>
+        <item>朝</item>
+    </string-array>
+
+    <string-array name="Psychology">
+        <item>＜恋愛依存度＞\n職場のデスクに食べ物を常備するとしたら？</item>
+        <item>＜性格タイプ＞\n友達とお話中，先日の食事会に\n自分だけ呼ばれなかったことに気づきました.\nあなたはどんな反応をしますか？</item>
+        <item>＜あの長さ＞\n旅客船が汽笛を鳴らして港から出ます.\nその汽笛の長さを答えて下さい.</item>
+    </string-array>
+
+    <string-array name="Psychology0_choices">
+        <item>チョコレート</item>
+        <item>せんべい</item>
+        <item>がむ</item>
+        <item>さきイカ</item>
+    </string-array>
+
+    <string-array name="Psychology0_answer">
+        <item>「恋愛依存度90％」\n甘くてロマンティックな恋の象徴.\n相手のすべてを独占したくなってしまうでしょう.\n好きな人との関係がすべての中心で,\n相手が自分よりも友達の予定を優先すれば\n怒り狂ってしまうかもしれません.</item>
+        <item>「恋愛依存度30％」\nドライな恋の象徴.\nあなたはそれほど恋愛に\n翻弄されるタイプではないようです.\n好きな異性を一途に想い続けますが,\nもしダメなときはきっぱりあきらめます.\n恋をしている時でも仕事や友達との\n付き合いもバランスよく楽しめます.</item>
+        <item>「恋愛依存度10％」\n味気ない恋の象徴.\nあなたは恋愛に夢も希望も持っていません.\n所詮人の心は変わるもの.永遠の愛なんてあるわけはない.\nそう思っているのではないでしょうか.\nもしかしたら過去の恋で傷ついた経験があり\n恋が嫌になったのかもしれません.</item>
+        <item>「恋愛依存度70％」\n奥深い恋愛の象徴.\nあなたは恋愛の酸いも甘いも知っている人.\n恋人がいてもいい時ばかりではない\nと割り切っているようです.\nとはいえ,それでも愛のない生活なんて考えられません.\n恋人がいなかったり,いてもかまってくれないと\nやはりさみしいのです.</item>
+    </string-array>
+
+    <string-array name="Psychology1_choices">
+        <item>「私も行きたかったなー」</item>
+        <item>「あー、そうなんだ」</item>
+        <item>「話変わるけどさ」</item>
+        <item>「私だけ呼ばれなかったみたいだね」</item>
+    </string-array>
+
+    <string-array name="Psychology1_answer">
+        <item>「八方美人タイプ」\n誰にも嫌われたくない,\n誰からも愛されたいと強く思っているため,\n人前では不快な感情を決して出しません.\n心にもない言葉を平気で言うことが出来ます.</item>
+        <item>「粘着質タイプ」\nあなたは思ったことをすぐに口走ったり\n態度には出さず心に秘めています.\nあとで誘われなかった理由を探ろうとします.\nそして自分がされたことを決して忘れず\nいつまでも根に持つ面があります.</item>
+        <item>「お子ちゃまタイプ」\nのけ者にされた事実を認めたくないあなたは，\n皆が楽しそうに盛り上がっていること自体が不愉快です.\nだからこそ，その話を無かったことにしようと\nさりげなく別の話に誘導をします.\n自分が話題の中心でいないと気がすまない\nわがままな子どものような人でしょう.</item>
+        <item>「リベンジタイプ」\n相当な負けず嫌いなあなたは,\nのけ者にされたと知った瞬間\nもう大変.水に流すことなんて無理です.\nいつか絶対にやり返すと復讐を誓い\nしっかり実行するタイプです.\n相手が不幸になれば心の中で\nガッツポーズをしているはずです.</item>
+    </string-array>
+
+    <string-array name="Psychology2_choices">
+        <item>すごく短い</item>
+        <item>1秒くらい</item>
+        <item>3秒くらい</item>
+        <item>3秒以上</item>
+    </string-array>
+
+    <string-array name="Psychology2_answer">
+        <item>あなたのキスの長さや回数がわかります.\nあなたは軽く短いキスが好みでしょう.</item>
+        <item>あなたのキスの長さや回数がわかります.\nあなたは短すぎず長すぎない\n普通のキスが好みでしょう.</item>
+        <item>あなたのキスの長さや回数がわかります.\nあなたは気持ちのこもった\n少し長めのキスが好みのようです.</item>
+        <item>あなたのキスの長さや回数がわかります.\nあなたは情熱的な\n深いキスが好みでしょう.</item>
+    </string-array>
 
     <!--Color Palette-->
     <string name="btn_reStart">Palette\nReset</string>

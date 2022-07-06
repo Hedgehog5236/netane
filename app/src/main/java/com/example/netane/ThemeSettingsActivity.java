@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.preference.MultiSelectListPreference;
 
 public class ThemeSettingsActivity extends AppCompatActivity {
     @Override
