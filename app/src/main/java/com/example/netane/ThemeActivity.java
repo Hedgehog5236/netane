@@ -7,6 +7,7 @@ import android.content.res.TypedArray;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -67,14 +68,16 @@ public class ThemeActivity extends AppCompatActivity {
         hide = findViewById(R.id.hide_topic);
         num_topics = findViewById(R.id.theme_header_right);
 
+        // スクロール可能にする
+        topic.setMovementMethod(new ScrollingMovementMethod());
+        answer.setMovementMethod(new ScrollingMovementMethod());
+
         // ネタ帳(ジャンル→ネタ 二次元配列)読み込み
         seeds = getResources().obtainTypedArray(R.array.seeds);
         // ジャンル名一覧
         genre_name = getResources().obtainTypedArray(R.array.genre_name);
         // クイズの答え一覧
         quiz_answer = getResources().obtainTypedArray(R.array.QuizAnswer);
-        //
-
 
         // 設定値を読み込み
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this /* Activity context */);
@@ -96,7 +99,6 @@ public class ThemeActivity extends AppCompatActivity {
                 makePreference.apply();
             }
         }
-
         // 初期化
         init();
     }
@@ -147,7 +149,10 @@ public class ThemeActivity extends AppCompatActivity {
         divider.setVisibility(View.VISIBLE);
         next.setVisibility(View.VISIBLE);
         hide.setVisibility(View.VISIBLE);
+        answer.setVisibility(View.INVISIBLE);
+        annotation.setVisibility(View.INVISIBLE);
         screen.setClickable(false);
+        annotation.setClickable(false);
         num_topics.setText("Topics:" + count--);
         topic_title.setText(genre_name.getString(genre_index));
         topic.setText(genre[topic_index]);
@@ -155,9 +160,9 @@ public class ThemeActivity extends AppCompatActivity {
         // もしtopicがQuizなら
         if (genre_name.getString(genre_index).equals("Quiz")) {
             annotation.setVisibility(View.VISIBLE);
-            annotation.setText("Tap screen to see the answer");
-            screen.setClickable(true);
-            screen.setOnClickListener(new View.OnClickListener() {
+            annotation.setText("Tap here to see the answer");
+            annotation.setClickable(true);
+            annotation.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     new AlertDialog.Builder(ThemeActivity.this)
                             .setTitle("Answer will be shown.")
@@ -168,7 +173,7 @@ public class ThemeActivity extends AppCompatActivity {
                                     answer.setVisibility(View.VISIBLE);
                                     annotation.setText("Answer");
                                     answer.setText(quiz_answer.getString(topic_index));
-                                    screen.setClickable(false);
+                                    annotation.setClickable(false);
                                 }
                             })
 
@@ -264,8 +269,8 @@ public class ThemeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 topic_title.setVisibility(View.VISIBLE);
                 divider.setVisibility(View.VISIBLE);
-                next.setVisibility(View.VISIBLE);
-                hide.setVisibility(View.VISIBLE);
+//                next.setVisibility(View.VISIBLE);
+//                hide.setVisibility(View.VISIBLE);
                 screen.setClickable(false);
                 num_topics.setText("Topics:" + count--);
                 next.performClick(); // nextボタンを押したことにする
@@ -321,6 +326,7 @@ public class ThemeActivity extends AppCompatActivity {
         right_up.setVisibility(View.INVISIBLE);
         left_bottom.setVisibility(View.INVISIBLE);
         right_bottom.setVisibility(View.INVISIBLE);
+        annotation.setClickable(false);
         screen.setClickable(false);
 
         // topicの表示
@@ -360,7 +366,6 @@ public class ThemeActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     topic.setText("Tap screen to start");
                     screen.setClickable(false);
-//                    Log.d(Tag, "Reset");
                     init();
                 }
             });
@@ -385,6 +390,7 @@ public class ThemeActivity extends AppCompatActivity {
         // topicを表示
         topic_title.setText(genre_name.getString(genre_index));
         topic.setText(genre[topic_index]);
+
         // topic選択候補から削除
         candidates.get(genre_index).remove(select_topic_index);
         // 表示したものリストにindexを追加
@@ -399,9 +405,9 @@ public class ThemeActivity extends AppCompatActivity {
         // もしtopicがQuizなら
         if (genre_name.getString(genre_index).equals("Quiz")){
             annotation.setVisibility(View.VISIBLE);
-            annotation.setText("Tap screen to see the answer");
-            screen.setClickable(true);
-            screen.setOnClickListener(new View.OnClickListener() {
+            annotation.setText("Tap here to see the answer");
+            annotation.setClickable(true);
+            annotation.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     new AlertDialog.Builder(ThemeActivity.this)
                             .setTitle("Answer will be shown.")
@@ -412,7 +418,7 @@ public class ThemeActivity extends AppCompatActivity {
                                     answer.setVisibility(View.VISIBLE);
                                     annotation.setText("Answer");
                                     answer.setText(quiz_answer.getString(topic_index));
-                                    screen.setClickable(false);
+                                    annotation.setClickable(false);
                                 }
                             })
 
@@ -518,19 +524,19 @@ public class ThemeActivity extends AppCompatActivity {
         answer.setText(psychology_answer[choice_num]);
         // スクリーンタップで戻る
         annotation.setVisibility(View.VISIBLE);
-        annotation.setText("Tap screen to return to the selection");
-        screen.setClickable(true);
-        screen.setOnClickListener(new View.OnClickListener() {
+        annotation.setText("Tap here to return to the selection");
+        annotation.setClickable(true);
+        annotation.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // topicを表示
                 topic_title.setText(genre_name.getString(genre_index));
                 topic.setText(genre[topic_index]);
                 // 答えを非表示
                 answer.setVisibility(View.INVISIBLE);
-                // スクリーンタップで戻るを非表示
+                // annotation tapで戻るを非表示
                 annotation.setVisibility(View.INVISIBLE);
-                // screenをタップ不可に設定
-                screen.setClickable(false);
+                // annotationをタップ不可に設定
+                annotation.setClickable(false);
                 // 選択肢を表示
                 switch (psychology_choices.length){
                     case (1):{
@@ -569,4 +575,5 @@ public class ThemeActivity extends AppCompatActivity {
             }
         });
     }
+
 }

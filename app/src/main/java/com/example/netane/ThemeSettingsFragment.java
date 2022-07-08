@@ -52,7 +52,7 @@ public class ThemeSettingsFragment extends PreferenceFragmentCompat {
         SwitchPreferenceCompat genre_all = new SwitchPreferenceCompat(context);
         genre_all.setTitle("全てのジャンルをON/OFF");
         genre_all.setSummaryOff("Turn On to Enable all genre");
-        genre_all.setSummaryOn("Turn On to Disable all genre");
+        genre_all.setSummaryOn("Turn Off to Disable all genre");
         genre_all.setKey("AllGenre");
         genre_all.setChecked(true);
         category_all.addPreference(genre_all);
@@ -61,7 +61,7 @@ public class ThemeSettingsFragment extends PreferenceFragmentCompat {
         SwitchPreferenceCompat individual_all = new SwitchPreferenceCompat(context);
         individual_all.setTitle("全てのTopicをON/OFF");
         individual_all.setSummaryOff("Turn On to Enable all topic");
-        individual_all.setSummaryOn("Turn On to Disable all topic");
+        individual_all.setSummaryOn("Turn Off to Disable all topic");
         individual_all.setKey("AllIndividual");
         individual_all.setChecked(true);
         category_all.addPreference(individual_all);

@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_alternates_medium_italic"
         android:text=""
-        android:textSize="16sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.87"
@@ -72,30 +72,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01">
+        app:layout_constraintVertical_bias="0.005">
     </TextView>
 
     <TextView
         android:id="@+id/topic_tv"
-        android:layout_width="405dp"
-        android:layout_height="210dp"
+        android:layout_width="395dp"
+        android:layout_height="240dp"
         android:layout_gravity="center"
         android:fontFamily="@font/montserrat_alternates_medium_italic"
         android:gravity="center"
         android:text="Tap screen to start"
-        android:textSize="20sp"
         android:textColor="@color/black"
+        android:textSize="23sp"
+        android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.11">
+        app:layout_constraintVertical_bias="0.095">
     </TextView>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/left_up"
-        android:layout_width="175sp"
-        android:layout_height="85sp"
+        android:layout_width="170sp"
+        android:layout_height="95sp"
         android:layout_gravity="center"
         android:fontFamily="@font/montserrat_alternates_medium_italic"
         android:gravity="center"
@@ -103,24 +104,21 @@
         android:padding="5dp"
         android:text="left_up"
         android:textColor="@color/black"
-        android:textSize="12sp"
+        android:textSize="18sp"
         android:visibility="invisible"
-        app:backgroundTint="@color/off_white"
-        app:cornerRadius="10dp"
+        android:background="@drawable/white_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6"
-        app:strokeColor="@color/lime_green"
-        app:strokeWidth="3dp">
-    </Button>
+        app:layout_constraintVertical_bias="0.6">
+    </androidx.appcompat.widget.AppCompatButton>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/right_up"
-        android:layout_width="175sp"
-        android:layout_height="85sp"
+        android:layout_width="170sp"
+        android:layout_height="95sp"
         android:layout_gravity="center"
         android:fontFamily="@font/montserrat_alternates_medium_italic"
         android:gravity="center"
@@ -128,24 +126,21 @@
         android:padding="5dp"
         android:text="right_up"
         android:textColor="@color/black"
-        android:textSize="12sp"
+        android:textSize="18sp"
         android:visibility="invisible"
-        app:backgroundTint="@color/off_white"
-        app:cornerRadius="10dp"
+        android:background="@drawable/white_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.92"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6"
-        app:strokeColor="@color/lime_green"
-        app:strokeWidth="3dp">
-    </Button>
+        app:layout_constraintVertical_bias="0.6">
+    </androidx.appcompat.widget.AppCompatButton>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/left_bottom"
-        android:layout_width="175sp"
-        android:layout_height="85sp"
+        android:layout_width="170sp"
+        android:layout_height="95sp"
         android:layout_gravity="center"
         android:fontFamily="@font/montserrat_alternates_medium_italic"
         android:gravity="center"
@@ -153,24 +148,21 @@
         android:padding="5dp"
         android:text="left_bottom"
         android:textColor="@color/black"
-        android:textSize="12sp"
+        android:textSize="18sp"
         android:visibility="invisible"
-        app:backgroundTint="@color/off_white"
-        app:cornerRadius="10dp"
+        android:background="@drawable/white_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8"
-        app:strokeColor="@color/lime_green"
-        app:strokeWidth="3dp">
-    </Button>
+        app:layout_constraintVertical_bias="0.8">
+    </androidx.appcompat.widget.AppCompatButton>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/right_bottom"
-        android:layout_width="175sp"
-        android:layout_height="85sp"
+        android:layout_width="170sp"
+        android:layout_height="95sp"
         android:layout_gravity="center"
         android:fontFamily="@font/montserrat_alternates_medium_italic"
         android:gravity="center"
@@ -178,37 +170,36 @@
         android:padding="5dp"
         android:text="right_bottom"
         android:textColor="@color/black"
-        android:textSize="12sp"
+        android:textSize="18sp"
         android:visibility="invisible"
-        app:backgroundTint="@color/off_white"
-        app:cornerRadius="10dp"
+        android:background="@drawable/white_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.92"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8"
-        app:strokeColor="@color/lime_green"
-        app:strokeWidth="3dp">
-    </Button>
+        app:layout_constraintVertical_bias="0.8">
+    </androidx.appcompat.widget.AppCompatButton>
 
     <TextView
         android:id="@+id/Answer"
-        android:layout_width="405dp"
-        android:layout_height="330dp"
+        android:layout_width="390dp"
+        android:layout_height="320dp"
         android:layout_gravity="center_horizontal"
+        android:background="@drawable/off_white_background"
         android:fontFamily="@font/montserrat_alternates_medium_italic"
         android:gravity="center_horizontal"
         android:text="Answer"
-        android:textSize="20sp"
         android:textColor="@color/black"
+        android:textSize="22sp"
         android:visibility="invisible"
-        android:background="@drawable/off_white_background"
+        android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.79">
+        app:layout_constraintVertical_bias="0.81">
     </TextView>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -226,7 +217,7 @@
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.97">
+        app:layout_constraintVertical_bias="0.98">
     </androidx.appcompat.widget.AppCompatButton>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -245,24 +236,24 @@
         app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.97">
+        app:layout_constraintVertical_bias="0.98">
     </androidx.appcompat.widget.AppCompatButton>
 
     <TextView
         android:id="@+id/annotation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
         android:fontFamily="@font/montserrat_alternates_medium_italic"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:text="Annotation"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4">
+        app:layout_constraintVertical_bias="0.42">
 
     </TextView>
 
@@ -272,12 +263,11 @@
         android:layout_height="1dp"
         android:background="?android:attr/listDivider"
         android:visibility="invisible"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="290dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.37"/>
+        app:layout_constraintVertical_bias="0.395" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
