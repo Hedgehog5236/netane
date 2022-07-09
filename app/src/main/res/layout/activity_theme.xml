@@ -22,10 +22,10 @@
         android:fontFamily="@font/montserrat_alternates_medium_italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.01">
     </TextView>
 
     <TextView
@@ -51,10 +51,10 @@
         android:onClick="tapSetting"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.98"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.005">
     </ImageButton>
 
     <TextView
@@ -76,22 +76,56 @@
     </TextView>
 
     <TextView
+        android:id="@+id/caution"
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        android:layout_gravity="center"
+        android:fontFamily="@font/montserrat_alternates_medium_italic"
+        android:gravity="center"
+        android:text="Caution"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        android:textColor="@color/off_red"
+        android:background="@color/off_white2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.067">
+    </TextView>
+
+    <TextView
         android:id="@+id/topic_tv"
-        android:layout_width="395dp"
-        android:layout_height="240dp"
+        android:layout_width="match_parent"
+        android:layout_height="255dp"
         android:layout_gravity="center"
         android:fontFamily="@font/montserrat_alternates_medium_italic"
         android:gravity="center"
         android:text="Tap screen to start"
         android:textColor="@color/black"
         android:textSize="23sp"
-        android:padding="5dp"
+        android:paddingHorizontal="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.095">
+        app:layout_constraintVertical_bias="0.16">
     </TextView>
+
+    <ImageView
+        android:id="@+id/topic_iv"
+        android:layout_width="match_parent"
+        android:layout_height="255dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:paddingHorizontal="5dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.16">
+    </ImageView>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/left_up"
@@ -112,7 +146,7 @@
         app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6">
+        app:layout_constraintVertical_bias="0.62">
     </androidx.appcompat.widget.AppCompatButton>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -134,7 +168,7 @@
         app:layout_constraintHorizontal_bias="0.92"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6">
+        app:layout_constraintVertical_bias="0.62">
     </androidx.appcompat.widget.AppCompatButton>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -156,7 +190,7 @@
         app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8">
+        app:layout_constraintVertical_bias="0.82">
     </androidx.appcompat.widget.AppCompatButton>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -178,29 +212,48 @@
         app:layout_constraintHorizontal_bias="0.92"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8">
+        app:layout_constraintVertical_bias="0.82">
     </androidx.appcompat.widget.AppCompatButton>
 
     <TextView
         android:id="@+id/Answer"
-        android:layout_width="390dp"
-        android:layout_height="320dp"
+        android:layout_width="match_parent"
+        android:layout_height="258dp"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/off_white_background"
         android:fontFamily="@font/montserrat_alternates_medium_italic"
         android:gravity="center_horizontal"
         android:text="Answer"
         android:textColor="@color/black"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:visibility="invisible"
+        android:layout_margin="3dp"
+        android:padding="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.844">
+    </TextView>
+
+    <ImageView
+        android:id="@+id/Answer_iv"
+        android:layout_width="match_parent"
+        android:layout_height="258dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/off_white_background"
+        android:gravity="center_horizontal"
+        android:visibility="invisible"
+        android:layout_margin="3dp"
         android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.81">
-    </TextView>
+        app:layout_constraintVertical_bias="0.844">
+    </ImageView>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/hide_topic"
@@ -242,19 +295,38 @@
     <TextView
         android:id="@+id/annotation"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="32dp"
         android:layout_gravity="center"
         android:fontFamily="@font/montserrat_alternates_medium_italic"
         android:gravity="center"
         android:text="Annotation"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:visibility="invisible"
+        android:background="@color/off_white2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.42">
+        app:layout_constraintVertical_bias="0.475">
+    </TextView>
 
+    <TextView
+        android:id="@+id/Answer_header"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:fontFamily="@font/montserrat_alternates_medium_italic"
+        android:gravity="center"
+        android:text="Answer_header"
+        android:textSize="22sp"
+        android:visibility="invisible"
+        android:textColor="@color/black"
+        android:background="@color/off_bluesky"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.523">
     </TextView>
 
     <View
@@ -268,6 +340,6 @@
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.395" />
+        app:layout_constraintVertical_bias="0.453" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

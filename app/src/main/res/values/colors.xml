@@ -17,4 +17,6 @@
     <color name="red">#E2E62A2A</color>
     <color name="off_white">#E0FFFFFF</color>
     <color name="off_white2">#60FFFFFF</color>
+    <color name="off_red">#AEFD1D4A</color>
+    <color name="off_bluesky">#5493E0FF</color>
 </resources>

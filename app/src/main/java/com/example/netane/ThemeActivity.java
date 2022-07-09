@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,6 +12,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.content.SharedPreferences.Editor;
 import com.google.common.collect.Lists;
@@ -34,12 +36,13 @@ public class ThemeActivity extends AppCompatActivity {
     // 変数
     SharedPreferences sharedPreferences;
     androidx.constraintlayout.widget.ConstraintLayout screen;
-    TextView topic, topic_title, annotation, answer, num_topics;
+    TextView caution, answer_header, topic, topic_title, annotation, answer, num_topics;
+    ImageView topicImage, answerImage;
     Button next, hide, left_up, right_up, left_bottom, right_bottom;
     View divider;
-    int count, len, firstIndex, resourceId, select_genre_index, genre_index, select_topic_index, topic_index, choice_num;
+    int ImageNameEndIndex, CautionStrEndIndex, count, len, firstIndex, resourceId, select_genre_index, genre_index, select_topic_index, topic_index, choice_num;
     String Tag, key;
-    String[] genre, psychology_choices, psychology_answer;
+    String[] genre, psychology_choices, psychology_answer, str_divided;
     TypedArray seeds, genre_name, quiz_answer;
     List<List<Integer>> candidates, displayCompList;
     List<Integer> genre_index_candidates, IntList;
@@ -54,6 +57,8 @@ public class ThemeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_theme);
         Tag = "ThemeActivity";
 
+        answer_header = findViewById(R.id.Answer_header);
+        caution = findViewById(R.id.caution);
         divider = findViewById(R.id.divider1);
         answer = findViewById(R.id.Answer);
         left_up = findViewById(R.id.left_up);
@@ -64,6 +69,8 @@ public class ThemeActivity extends AppCompatActivity {
         topic_title = findViewById(R.id.topic_title);
         annotation = findViewById(R.id.annotation);
         screen = findViewById(R.id.theme_screen);
+        topicImage = findViewById(R.id.topic_iv);
+        answerImage = findViewById(R.id.Answer_iv);
         next = findViewById(R.id.next_topic);
         hide = findViewById(R.id.hide_topic);
         num_topics = findViewById(R.id.theme_header_right);
@@ -145,91 +152,10 @@ public class ThemeActivity extends AppCompatActivity {
         }
 
         // 表示再開
-        topic_title.setVisibility(View.VISIBLE);
-        divider.setVisibility(View.VISIBLE);
-        next.setVisibility(View.VISIBLE);
-        hide.setVisibility(View.VISIBLE);
-        answer.setVisibility(View.INVISIBLE);
-        annotation.setVisibility(View.INVISIBLE);
-        screen.setClickable(false);
-        annotation.setClickable(false);
-        num_topics.setText("Topics:" + count--);
-        topic_title.setText(genre_name.getString(genre_index));
-        topic.setText(genre[topic_index]);
+        resetViews();
 
-        // もしtopicがQuizなら
-        if (genre_name.getString(genre_index).equals("Quiz")) {
-            annotation.setVisibility(View.VISIBLE);
-            annotation.setText("Tap here to see the answer");
-            annotation.setClickable(true);
-            annotation.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    new AlertDialog.Builder(ThemeActivity.this)
-                            .setTitle("Answer will be shown.")
-                            .setMessage("Press OK if you want to see the answer")
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    // OKをクリックしたときの処理
-                                    answer.setVisibility(View.VISIBLE);
-                                    annotation.setText("Answer");
-                                    answer.setText(quiz_answer.getString(topic_index));
-                                    annotation.setClickable(false);
-                                }
-                            })
-
-                            .setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    // Cancelをクリックしたときの処理
-                                }
-                            })
-                            .show();
-                }
-            });
-        }
-        // もしtopicがPsychologyなら
-        if (genre_name.getString(genre_index).equals("Psychology")) {
-            // 選択肢を読み込み
-            resourceId = getResources().getIdentifier("Psychology" + topic_index + "_choices", "array", getPackageName());
-            psychology_choices = getResources().getStringArray(resourceId);
-            // 答えを読み込み
-            resourceId = getResources().getIdentifier("Psychology" + topic_index + "_answer", "array", getPackageName());
-            psychology_answer = getResources().getStringArray(resourceId);
-            // 選択肢の数分ボタンを表示
-            switch (psychology_choices.length) {
-                case (1): {
-                    left_up.setVisibility(View.VISIBLE);
-                    left_up.setText(psychology_choices[0]);
-                    break;
-                }
-                case (2): {
-                    left_up.setVisibility(View.VISIBLE);
-                    right_up.setVisibility(View.VISIBLE);
-                    left_up.setText(psychology_choices[0]);
-                    right_up.setText(psychology_choices[1]);
-                    break;
-                }
-                case (3): {
-                    left_up.setVisibility(View.VISIBLE);
-                    right_up.setVisibility(View.VISIBLE);
-                    left_bottom.setVisibility(View.VISIBLE);
-                    left_up.setText(psychology_choices[0]);
-                    right_up.setText(psychology_choices[1]);
-                    left_bottom.setText(psychology_choices[2]);
-                    break;
-                }
-                case (4): {
-                    left_up.setVisibility(View.VISIBLE);
-                    right_up.setVisibility(View.VISIBLE);
-                    left_bottom.setVisibility(View.VISIBLE);
-                    right_bottom.setVisibility(View.VISIBLE);
-                    left_up.setText(psychology_choices[0]);
-                    right_up.setText(psychology_choices[1]);
-                    left_bottom.setText(psychology_choices[2]);
-                    right_bottom.setText(psychology_choices[3]);
-                    break;
-                }
-            }
-        }
+        //topicを表示
+        showTopic();
     }
 
     public void init() {
@@ -269,8 +195,6 @@ public class ThemeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 topic_title.setVisibility(View.VISIBLE);
                 divider.setVisibility(View.VISIBLE);
-//                next.setVisibility(View.VISIBLE);
-//                hide.setVisibility(View.VISIBLE);
                 screen.setClickable(false);
                 num_topics.setText("Topics:" + count--);
                 next.performClick(); // nextボタンを押したことにする
@@ -319,22 +243,33 @@ public class ThemeActivity extends AppCompatActivity {
     }
 
     public void tapNext(View view) {
-        // topic以外を非表示
+        // viewの表示やボタンを初期化
+        resetViews();
+        // topicの表示
+        UpToDateTextView();
+    }
+
+    public void resetViews(){
+        topic.setVisibility(View.VISIBLE);
+        divider.setVisibility(View.VISIBLE);
+        // topicと仕切り棒以外を非表示
+        caution.setVisibility(View.INVISIBLE);
+        topicImage.setVisibility(View.INVISIBLE);
         annotation.setVisibility(View.INVISIBLE);
         answer.setVisibility(View.INVISIBLE);
+        answerImage.setVisibility(View.INVISIBLE);
+        answer_header.setVisibility(View.INVISIBLE);
         left_up.setVisibility(View.INVISIBLE);
         right_up.setVisibility(View.INVISIBLE);
         left_bottom.setVisibility(View.INVISIBLE);
         right_bottom.setVisibility(View.INVISIBLE);
+        // next, hide以外のボタン押下不可
         annotation.setClickable(false);
         screen.setClickable(false);
-
-        // topicの表示
-        upToDateTextView();
     }
 
     // topicTextViewの更新・終了判定
-    public void upToDateTextView(){
+    public void UpToDateTextView(){
         if (genre_index_candidates.size() != 0) {
             handler = new Handler();
             r = new Runnable() {
@@ -348,7 +283,10 @@ public class ThemeActivity extends AppCompatActivity {
                         counter++;
                         handler.postDelayed(this, 100);
                     } else { // topicの正規表示
+                        selectTopic();
                         showTopic();
+                        // topic候補リストなどを更新
+                        UpToDateCandidates();
                     }
                 }
             };
@@ -372,7 +310,20 @@ public class ThemeActivity extends AppCompatActivity {
         }
     }
 
-    public void showTopic(){
+    public void showRandom(){
+        hide.setVisibility(View.INVISIBLE);
+        next.setVisibility(View.INVISIBLE);
+        int random_genre_index = (int) (Math.random() * (seeds.length()));
+        String random_genre_name = genre_name.getString(random_genre_index);
+        int resId = getResources().getIdentifier(random_genre_name, "array", getPackageName());
+        String[] strArray = getResources().getStringArray(resId);
+        int random_topic_index = (int) (Math.random() * (strArray.length));
+        String random_topic = strArray[random_topic_index];
+        topic_title.setText(random_genre_name);
+        topic.setText(random_topic);
+    }
+
+    public void selectTopic(){
         // topicを選択
         select_genre_index =  (int) (Math.random() * (genre_index_candidates.size())); // 選択肢が残っているジャンルのリストの何番目の数字を選択するか
         genre_index = genre_index_candidates.get(select_genre_index); // 上で選んた数字番目にあるジャンルの番号を，ジャンルをまとめたリストにおけるindexとする
@@ -383,23 +334,32 @@ public class ThemeActivity extends AppCompatActivity {
         resourceId = seeds.getResourceId(genre_index, 0);
         // 子要素配列を取得
         genre = getResources().getStringArray(resourceId);
+    }
+
+    public void showTopic(){
+        // ボタンを表示
+        hide.setVisibility(View.VISIBLE);
+        next.setVisibility(View.VISIBLE);
 
         // 選ばれたtopicを表示
         Log.d("selected_topic", genre[topic_index]);
-
-        // topicを表示
         topic_title.setText(genre_name.getString(genre_index));
-        topic.setText(genre[topic_index]);
-
-        // topic選択候補から削除
-        candidates.get(genre_index).remove(select_topic_index);
-        // 表示したものリストにindexを追加
-        displayCompList.get(genre_index).add(topic_index);
-        // 昇順にソート
-        Collections.sort(displayCompList.get(genre_index));
-        // ジャンル選択候補から空になったジャンルの候補index番号を削除
-        if (candidates.get(genre_index).size() == 0) {
-            genre_index_candidates.remove(select_genre_index);
+        // 画像やcautionがあればそれに合わせてviewを表示
+        str_divided = divideStr(genre[topic_index]);
+        /* 画像があるパターン */
+        if(str_divided[0].length() != 0) {
+            topic.setVisibility(View.INVISIBLE);
+            topicImage.setVisibility(View.VISIBLE);
+            int id = getResources().getIdentifier(str_divided[0], "drawable", getPackageName());
+            topicImage.setImageResource(id);
+        /* 普通のテキストのパターン */
+        }else {
+            topic.setText(str_divided[2]);
+        }
+        /* cautionがあるパターン */
+        if(str_divided[1].length() != 0){
+            caution.setVisibility(View.VISIBLE);
+            caution.setText(str_divided[1]);
         }
 
         // もしtopicがQuizなら
@@ -415,10 +375,26 @@ public class ThemeActivity extends AppCompatActivity {
                             .setPositiveButton("OK", new  DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
                                     // OKをクリックしたときの処理
-                                    answer.setVisibility(View.VISIBLE);
                                     annotation.setText("Answer");
-                                    answer.setText(quiz_answer.getString(topic_index));
                                     annotation.setClickable(false);
+                                    // 答えが画像ならそれに合わせてviewを表示
+                                    str_divided = divideStr(quiz_answer.getString(topic_index));
+                                    /* 画像が答えのパターン */
+                                    if(str_divided[0].length() != 0){
+                                        answer.setVisibility(View.INVISIBLE);
+                                        answerImage.setVisibility(View.VISIBLE);
+                                        int id = getResources().getIdentifier(str_divided[0], "drawable", getPackageName());
+                                        answerImage.setImageResource(id);
+                                    /* 答えの詳細があるパターン */
+                                    }else if (str_divided[2].length() != 0){
+                                        answer.setVisibility(View.VISIBLE);
+                                        answer.setText(str_divided[2]);
+                                    }
+                                    /* 答えの文字列があるパターン */
+                                    if(str_divided[1].length() != 0){
+                                        answer_header.setVisibility(View.VISIBLE);
+                                        answer_header.setText(str_divided[1]);
+                                    }
                                 }
                             })
 
@@ -475,23 +451,48 @@ public class ThemeActivity extends AppCompatActivity {
                 }
             }
         }
-        hide.setVisibility(View.VISIBLE);
-        next.setVisibility(View.VISIBLE);
         // count表示を更新
         num_topics.setText("Topics:" + count--);
     }
 
-    public void showRandom(){
-        hide.setVisibility(View.INVISIBLE);
-        next.setVisibility(View.INVISIBLE);
-        int random_genre_index = (int) (Math.random() * (seeds.length()));
-        String random_genre_name = genre_name.getString(random_genre_index);
-        int resId = getResources().getIdentifier(random_genre_name, "array", getPackageName());
-        String[] strArray = getResources().getStringArray(resId);
-        int random_topic_index = (int) (Math.random() * (strArray.length));
-        String random_topic = strArray[random_topic_index];
-        topic_title.setText(random_genre_name);
-        topic.setText(random_topic);
+    public void UpToDateCandidates(){
+        // topic選択候補から削除
+        candidates.get(genre_index).remove(select_topic_index);
+        // 表示したものリストにindexを追加
+        displayCompList.get(genre_index).add(topic_index);
+        // 昇順にソート
+        Collections.sort(displayCompList.get(genre_index));
+        // ジャンル選択候補から空になったジャンルの候補index番号を削除
+        if (candidates.get(genre_index).size() == 0) {
+            genre_index_candidates.remove(select_genre_index);
+        }
+    }
+
+    public String[] divideStr(String text){
+        String ImageName, CautionStr, mainStr;
+        ImageNameEndIndex = text.indexOf("*im*");
+        CautionStrEndIndex = text.indexOf("*str*");
+        if (ImageNameEndIndex != -1 && CautionStrEndIndex != -1){
+            ImageName = text.substring(0, ImageNameEndIndex);
+            CautionStr = text.substring(ImageNameEndIndex+4, CautionStrEndIndex);
+            mainStr = text.substring(CautionStrEndIndex+5);
+        }
+        else if(ImageNameEndIndex != -1){
+            ImageName = text.substring(0, ImageNameEndIndex);
+            CautionStr = "";
+            mainStr = text.substring(ImageNameEndIndex+4);
+        }
+        else if(CautionStrEndIndex != -1){
+            ImageName = "";
+            CautionStr = text.substring(0, CautionStrEndIndex);
+            mainStr = text.substring(CautionStrEndIndex+5);
+        }
+        else{
+            ImageName = "";
+            CautionStr = "";
+            mainStr = text;
+        }
+        return new String[]{ImageName, CautionStr, mainStr};
     }
 
     // 四択で押されたボタンごとの処理
