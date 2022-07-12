@@ -138,7 +138,7 @@
             android:id="@+id/misstake"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:background="@drawable/misstake"
+            android:background="@drawable/mistake"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

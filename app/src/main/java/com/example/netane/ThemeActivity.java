@@ -57,22 +57,22 @@ public class ThemeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_theme);
         Tag = "ThemeActivity";
 
-        answer_header = findViewById(R.id.Answer_header);
-        caution = findViewById(R.id.caution);
-        divider = findViewById(R.id.divider1);
-        answer = findViewById(R.id.Answer);
-        left_up = findViewById(R.id.left_up);
-        right_up = findViewById(R.id.right_up);
-        left_bottom = findViewById(R.id.left_bottom);
-        right_bottom = findViewById(R.id.right_bottom);
-        topic = findViewById(R.id.topic_tv);
-        topic_title = findViewById(R.id.topic_title);
-        annotation = findViewById(R.id.annotation);
+        answer_header = findViewById(R.id.theme_Answer_header);
+        caution = findViewById(R.id.theme_caution);
+        divider = findViewById(R.id.theme_divider1);
+        answer = findViewById(R.id.theme_Answer);
+        left_up = findViewById(R.id.theme_left_up);
+        right_up = findViewById(R.id.theme_right_up);
+        left_bottom = findViewById(R.id.theme_left_bottom);
+        right_bottom = findViewById(R.id.theme_right_bottom);
+        topic = findViewById(R.id.theme_topic_tv);
+        topic_title = findViewById(R.id.theme_topic_title);
+        annotation = findViewById(R.id.theme_annotation);
         screen = findViewById(R.id.theme_screen);
-        topicImage = findViewById(R.id.topic_iv);
-        answerImage = findViewById(R.id.Answer_iv);
-        next = findViewById(R.id.next_topic);
-        hide = findViewById(R.id.hide_topic);
+        topicImage = findViewById(R.id.theme_topic_iv);
+        answerImage = findViewById(R.id.theme_Answer_iv);
+        next = findViewById(R.id.theme_next_topic);
+        hide = findViewById(R.id.theme_hide_topic);
         num_topics = findViewById(R.id.theme_header_right);
 
         // スクロール可能にする
@@ -346,6 +346,7 @@ public class ThemeActivity extends AppCompatActivity {
         topic_title.setText(genre_name.getString(genre_index));
         // 画像やcautionがあればそれに合わせてviewを表示
         str_divided = divideStr(genre[topic_index]);
+        Log.d("str_divide", String.valueOf(str_divided));
         /* 画像があるパターン */
         if(str_divided[0].length() != 0) {
             topic.setVisibility(View.INVISIBLE);
@@ -498,19 +499,19 @@ public class ThemeActivity extends AppCompatActivity {
     // 四択で押されたボタンごとの処理
     public void tapChoice(View view) {
         switch (view.getId()){
-            case (R.id.left_up):{
+            case (R.id.theme_left_up):{
                 choice_num = 0;
                 break;
             }
-            case (R.id.right_up):{
+            case (R.id.theme_right_up):{
                 choice_num = 1;
                 break;
             }
-            case (R.id.left_bottom):{
+            case (R.id.theme_left_bottom):{
                 choice_num = 2;
                 break;
             }
-            case (R.id.right_bottom):{
+            case (R.id.theme_right_bottom):{
                 choice_num = 3;
                 break;
             }
