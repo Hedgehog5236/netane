@@ -38,10 +38,8 @@ public class ThemeSettingsFragment extends PreferenceFragmentCompat {
         // RootのPreferenceScreenとPreferenceを管理しているPreferenceManagerを取得
         PreferenceScreen root = getPreferenceScreen();
 
-        // ネタ帳
-        TypedArray seeds = getResources().obtainTypedArray(R.array.seeds);
         // ジャンル名一覧
-        TypedArray genre_name = getResources().obtainTypedArray(R.array.genre_name);
+        String[] genre_name = getResources().getStringArray(R.array.genre_name);
 
         // 一括表示カテゴリ
         PreferenceCategory category_all = new PreferenceCategory(root.getContext());
@@ -71,10 +69,10 @@ public class ThemeSettingsFragment extends PreferenceFragmentCompat {
         category_genre.setTitle("ジャンル別 表示設定");
         root.addPreference(category_genre);    //Preferenceのrootにcategoryを追加
 
-        for (int i=0; i < genre_name.length(); i++) {
+        for (int i=0; i < genre_name.length; i++) {
             SwitchPreferenceCompat TempSwitch = new SwitchPreferenceCompat(context);
-            TempSwitch.setTitle(genre_name.getString(i));
-            TempSwitch.setKey(genre_name.getString(i));
+            TempSwitch.setTitle(genre_name[i]);
+            TempSwitch.setKey(genre_name[i]);
             TempSwitch.setChecked(true);
             category_genre.addPreference(TempSwitch); //categoryにPreferenceを追加
         }
@@ -84,9 +82,9 @@ public class ThemeSettingsFragment extends PreferenceFragmentCompat {
         category_individual.setTitle("個別 表示設定");
         root.addPreference(category_individual);    //Preferenceのrootにcategoryを追加
 
-        for (int i=0; i < genre_name.length(); i++) {
+        for (int i=0; i < genre_name.length; i++) {
             // 二次元配列の子要素のリソースIDを取得
-            int resourceId = seeds.getResourceId(i, 0);
+            int resourceId = getResources().getIdentifier(genre_name[i], "array", getActivity().getPackageName());
 
             // 子要素配列を取得
             String[] temp_genre = getResources().getStringArray(resourceId);
@@ -107,14 +105,14 @@ public class ThemeSettingsFragment extends PreferenceFragmentCompat {
 
             // マルチセレクトリスト
             MultiSelectListPreference TempIndividualSelect = new MultiSelectListPreference(context);
-            TempIndividualSelect.setTitle(genre_name.getString(i));
-            TempIndividualSelect.setKey(genre_name.getString(i)+"Individual");
+            TempIndividualSelect.setTitle(genre_name[i]);
+            TempIndividualSelect.setKey(genre_name[i]+"Individual");
             TempIndividualSelect.setEntries(genre);
             TempIndividualSelect.setEntryValues(strArray);
             Set<String> items = new HashSet<>(Arrays.asList(strArray));
             TempIndividualSelect.setDefaultValue(items);
             category_individual.addPreference(TempIndividualSelect); //categoryにPreferenceを追加
-            TempIndividualSelect.setDependency(genre_name.getString(i)); // categoryにPreferenceを追加した後でdependencyを追加しないとエラーが出る！！
+            TempIndividualSelect.setDependency(genre_name[i]); // categoryにPreferenceを追加した後でdependencyを追加しないとエラーが出る！！
         }
 
         // ジャンル一括表示設定
@@ -127,8 +125,8 @@ public class ThemeSettingsFragment extends PreferenceFragmentCompat {
                         .setPositiveButton("OK", new  DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 // OKをクリックしたときの処理
-                                for (int i=0; i < genre_name.length(); i++) {
-                                    SwitchPreferenceCompat TempSwitch = findPreference(genre_name.getString(i));
+                                for (int i=0; i < genre_name.length; i++) {
+                                    SwitchPreferenceCompat TempSwitch = findPreference(genre_name[i]);
                                     TempSwitch.setChecked(genre_all.isChecked());
                                 }
                             }
@@ -156,11 +154,11 @@ public class ThemeSettingsFragment extends PreferenceFragmentCompat {
                             public void onClick(DialogInterface dialog, int which) {
                                 // OKをクリックしたときの処理
                                 int count = 0;
-                                for (int i=0; i < genre_name.length(); i++) {
-                                    MultiSelectListPreference TempIndividualSelect = findPreference(genre_name.getString(i)+"Individual");
+                                for (int i=0; i < genre_name.length; i++) {
+                                    MultiSelectListPreference TempIndividualSelect = findPreference(genre_name[i]+"Individual");
 
                                     // 二次元配列の子要素のリソースIDを取得
-                                    int resourceId = seeds.getResourceId(i, 0);
+                                    int resourceId = getResources().getIdentifier(genre_name[i], "array", getActivity().getPackageName());
 
                                     // 子要素配列を取得
                                     String[] temp_genre = getResources().getStringArray(resourceId);

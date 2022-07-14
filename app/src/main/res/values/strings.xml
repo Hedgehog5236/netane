@@ -19,31 +19,6 @@
     <string name="btn_update">シャッフル</string>
     <!--神経衰弱-->
     <!--会話ネタ-->
-    <array name="seeds">
-        <item >@array/Trip</item>
-        <item >@array/Trend</item>
-        <item >@array/Secret</item>
-        <item >@array/Music</item>
-        <item >@array/Proud</item>
-        <item >@array/Family</item>
-        <item >@array/Experience</item>
-        <item >@array/School</item>
-        <item >@array/Hobby</item>
-        <item >@array/Food</item>
-        <item >@array/Life</item>
-        <item >@array/HomeTown</item>
-        <item >@array/Problem</item>
-        <item >@array/Love</item>
-        <item >@array/Friends</item>
-        <item >@array/Animal</item>
-        <item >@array/Work</item>
-        <item >@array/IF</item>
-        <item >@array/Which</item>
-        <item >@array/Movie</item>
-        <item >@array/Quiz</item>
-        <item >@array/Psychology</item>
-    </array>
-
     <array name="genre_name">
         <item >Trip</item>
         <item >Trend</item>
@@ -322,6 +297,7 @@
         <item>shinkansen*im*&lt;大人向け&gt; 難易度:低*str*</item>
         <item>難易度:中*str*特別な日や非日常の日のことを\n「晴れの日」といいますが，\n普段どおりの日常のことを\nなんと言う？</item>
         <item>tenyen*im*1枚動かして縦4枚横4枚に並べ替えよ*str*</item>
+        <item>難易度:中*str*都道府県の名前を\nひらがな読みしたときに\n動物が隠れているのは何個？</item>
     </string-array>
 
     <string-array name="QuizAnswer">
@@ -343,6 +319,7 @@
         <item>shinkansen_answer*im*熱*str*</item>
         <item>「褻(け)の日」*str*</item>
         <item>tenyen_answer*im*</item>
+        <item>６こ*str*みやぎ →　やぎ（山羊）\nさいたま　→　さい\nいしかわ　→　しか\nひょうご　→　ひょう\nとっとり　→　とり\nくまもと　→　くま</item>
     </string-array>
 
     <string-array name="Psychology">

@@ -24,6 +24,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -35,6 +37,7 @@ import java.util.stream.IntStream;
 public class ThemeActivity extends AppCompatActivity {
     // 変数
     SharedPreferences sharedPreferences;
+    Editor changePreference;
     androidx.constraintlayout.widget.ConstraintLayout screen;
     TextView caution, answer_header, topic, topic_title, annotation, answer, num_topics;
     ImageView topicImage, answerImage;
@@ -42,12 +45,11 @@ public class ThemeActivity extends AppCompatActivity {
     View divider;
     int ImageNameEndIndex, CautionStrEndIndex, count, len, firstIndex, resourceId, select_genre_index, genre_index, select_topic_index, topic_index, choice_num;
     String Tag, key;
-    String[] genre, psychology_choices, psychology_answer, str_divided;
-    TypedArray seeds, genre_name, quiz_answer;
+    String[] genre, psychology_choices, psychology_answer, str_divided, genre_name, quiz_answer;
     List<List<Integer>> candidates, displayCompList;
     List<Integer> genre_index_candidates, IntList;
-    List<String> temp_list;
-    Set<String> value, temp;
+    List<String> temp_list, OldGenreName;
+    Set<String> value, temp, GenreNameSet, OldGenreNameSet;
     Handler handler;
     Runnable r;
 
@@ -57,6 +59,7 @@ public class ThemeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_theme);
         Tag = "ThemeActivity";
 
+        // viewをセット
         answer_header = findViewById(R.id.theme_Answer_header);
         caution = findViewById(R.id.theme_caution);
         divider = findViewById(R.id.theme_divider1);
@@ -75,37 +78,44 @@ public class ThemeActivity extends AppCompatActivity {
         hide = findViewById(R.id.theme_hide_topic);
         num_topics = findViewById(R.id.theme_header_right);
 
+        // 変数初期化
+        temp = new HashSet<String>();
+
         // スクロール可能にする
         topic.setMovementMethod(new ScrollingMovementMethod());
         answer.setMovementMethod(new ScrollingMovementMethod());
 
-        // ネタ帳(ジャンル→ネタ 二次元配列)読み込み
-        seeds = getResources().obtainTypedArray(R.array.seeds);
         // ジャンル名一覧
-        genre_name = getResources().obtainTypedArray(R.array.genre_name);
+        genre_name = getResources().getStringArray(R.array.genre_name);
+        GenreNameSet = new HashSet<>(Arrays.asList(genre_name));
+
         // クイズの答え一覧
-        quiz_answer = getResources().obtainTypedArray(R.array.QuizAnswer);
+        quiz_answer = getResources().getStringArray(R.array.QuizAnswer);
 
         // 設定値を読み込み
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this /* Activity context */);
 
-        // 初回起動時，preferenceファイルが存在しないので作成する
-        if(sharedPreferences.getAll().isEmpty()) {
+        // ジャンル名一覧の記録を読み込み
+        OldGenreNameSet = sharedPreferences.getStringSet("genre_name_old", temp);
+
+        // 初回起動時 & ネタ帳更新時 & ネタ削除時にpreferenceファイルを更新する
+        if(sharedPreferences.getAll().isEmpty() || checkUpdateSeeds() || checkDeletedGenre()) {
             Editor makePreference = sharedPreferences.edit();
             count = 0;
-            for (int i=0; i < seeds.length(); i++) {
-                key = genre_name.getString(i) + "Individual";
-                resourceId = seeds.getResourceId(i, 0);
+            for (String s : genre_name) {
+                resourceId = getResources().getIdentifier(s, "array", getPackageName());
                 len = getResources().getStringArray(resourceId).length;
                 IntList = IntStream.range(count, count + len)
                         .boxed().collect(Collectors.toList());
                 List<String> temp_value = Lists.transform(IntList, Functions.toStringFunction());
+                key = s + "Individual";
                 value = new HashSet<String>(temp_value);
                 makePreference.putStringSet(key, value);
                 count = count + len;
                 makePreference.apply();
             }
         }
+
         // 初期化
         init();
     }
@@ -124,14 +134,13 @@ public class ThemeActivity extends AppCompatActivity {
         // topic選択候補リスト, 選択肢が残っているジャンル一覧リスト, セット型の仮変数を初期化
         candidates = new ArrayList<>();
         genre_index_candidates = new ArrayList<>();
-        temp = new HashSet<String>();
 
         // 表示設定にチェックがあるものを配列にセット
-        for (int i = 0; i < seeds.length(); i++) {
+        for (int i = 0; i < genre_name.length; i++) {
             // もしジャンル別表示設定でオフになっていなければ，
-            if (sharedPreferences.getBoolean(genre_name.getString(i), true)) {
+            if (sharedPreferences.getBoolean(genre_name[i], true)) {
                 // list<String>で保存された設定値を読み込む． → list<Integer>に型変換 and 全ての要素にインデックス番号の調整処理を実行する.
-                temp_list = new ArrayList<>(sharedPreferences.getStringSet(genre_name.getString(i) + "Individual", temp));
+                temp_list = new ArrayList<>(sharedPreferences.getStringSet(genre_name[i] + "Individual", temp));
                 IntList = temp_list.stream().map(e -> Integer.parseInt(e) - firstIndex).collect(Collectors.toList());
                 // すでに表示されたものが設定値に含まれていれば削除
                 boolean result = IntList.removeAll(displayCompList.get(i));
@@ -147,7 +156,7 @@ public class ThemeActivity extends AppCompatActivity {
             }
             // countを更新
             count = count + IntList.size();
-            resourceId = seeds.getResourceId(i, 0);
+            resourceId = getResources().getIdentifier(genre_name[i], "array", getPackageName());
             firstIndex = firstIndex + getResources().getStringArray(resourceId).length;
         }
 
@@ -165,14 +174,13 @@ public class ThemeActivity extends AppCompatActivity {
         candidates = new ArrayList<>();
         displayCompList = new ArrayList<>();
         genre_index_candidates = new ArrayList<>();
-        temp = new HashSet<String>();
 
         // 表示設定にチェックがあるものを配列にセット
-        for (int i=0; i < seeds.length(); i++) {
+        for (int i=0; i < genre_name.length; i++) {
             // もしジャンル別表示設定でオフになっていなければ，
-            if(sharedPreferences.getBoolean(genre_name.getString(i), true)) {
+            if(sharedPreferences.getBoolean(genre_name[i], true)) {
                 // list<String>で保存された設定値を読み込む． → list<Integer>に型変換 and 全ての要素にインデックス番号の調整処理を実行する.
-                temp_list = new ArrayList<>(sharedPreferences.getStringSet(genre_name.getString(i)+"Individual", temp));
+                temp_list = new ArrayList<>(sharedPreferences.getStringSet(genre_name[i]+"Individual", temp));
                 IntList = temp_list.stream().map(e -> Integer.parseInt(e) - firstIndex).collect(Collectors.toList());
                 candidates.add(IntList);
                 // 選択肢が残っているジャンルのindex番号一覧
@@ -186,10 +194,9 @@ public class ThemeActivity extends AppCompatActivity {
             displayCompList.add(new ArrayList<Integer>(0));
             // countを更新
             count = count + IntList.size();
-            resourceId = seeds.getResourceId(i, 0);
+            resourceId = getResources().getIdentifier(genre_name[i], "array", getPackageName());
             firstIndex = firstIndex + getResources().getStringArray(resourceId).length;
         }
-
         // 開始表示
         screen.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -200,6 +207,45 @@ public class ThemeActivity extends AppCompatActivity {
                 next.performClick(); // nextボタンを押したことにする
             }
         });
+    }
+
+    public boolean checkUpdateSeeds(){
+        boolean bool = false;
+        // ジャンル追加・ネタ更新チェック
+        for (String s : genre_name) {
+            key = s + "Individual";
+            resourceId = getResources().getIdentifier(s, "array", getPackageName());
+            len = getResources().getStringArray(resourceId).length;
+            if (sharedPreferences.getStringSet(key, temp) == null) {
+                Log.d("checkUpdateSeeds", "addGenre " + s);
+                bool = true;
+            } else if (sharedPreferences.getStringSet(key, temp).size() != len) {
+                Log.d("checkUpdateSeeds", "Update " + s);
+                bool = true;
+            }
+        }
+        return bool;
+    }
+
+    public boolean checkDeletedGenre(){
+        boolean bool = false;
+        changePreference = sharedPreferences.edit();
+        if (OldGenreNameSet != null){
+            OldGenreName = new ArrayList<>(OldGenreNameSet);
+            for (int i=0; i < OldGenreName.size(); i++){
+                int id = getResources().getIdentifier(OldGenreName.get(i), "array", getPackageName());
+                if (id == 0){
+                    changePreference.remove(OldGenreName.get(i));
+                    changePreference.remove((OldGenreName.get(i) + "Individual"));
+                    Log.d("deleteGenre", OldGenreName.get(i));
+                    bool = true;
+                }
+            }
+        }
+        changePreference.putStringSet("genre_name_old", GenreNameSet);
+        Log.d("genre_name_old", "Update");
+        changePreference.apply();
+        return bool;
     }
 
     public void tapBack(View view) {
@@ -221,7 +267,7 @@ public class ThemeActivity extends AppCompatActivity {
                 public void onClick(DialogInterface dialog, int which) {
                     // OKをクリックしたときの処理
                     Editor editor = sharedPreferences.edit();
-                    key = genre_name.getString(genre_index)+"Individual";
+                    key = genre_name[genre_index]+"Individual";
                     List<String> temp_value = new ArrayList<>(sharedPreferences.getStringSet(key, temp));
                     temp_value.remove(select_topic_index);
                     value = new HashSet<String>(temp_value);
@@ -313,8 +359,8 @@ public class ThemeActivity extends AppCompatActivity {
     public void showRandom(){
         hide.setVisibility(View.INVISIBLE);
         next.setVisibility(View.INVISIBLE);
-        int random_genre_index = (int) (Math.random() * (seeds.length()));
-        String random_genre_name = genre_name.getString(random_genre_index);
+        int random_genre_index = (int) (Math.random() * (genre_name.length));
+        String random_genre_name = genre_name[random_genre_index];
         int resId = getResources().getIdentifier(random_genre_name, "array", getPackageName());
         String[] strArray = getResources().getStringArray(resId);
         int random_topic_index = (int) (Math.random() * (strArray.length));
@@ -331,9 +377,12 @@ public class ThemeActivity extends AppCompatActivity {
         topic_index = candidates.get(genre_index).get(select_topic_index); // 上で選んだ数字番目にあるtopicの番号を，ジャンル別topicリストに於けるindexとする
 
         // 二次元配列の子要素のリソースIDを取得
-        resourceId = seeds.getResourceId(genre_index, 0);
+        resourceId = getResources().getIdentifier(genre_name[genre_index], "array", getPackageName());
         // 子要素配列を取得
         genre = getResources().getStringArray(resourceId);
+        Log.d("candidates", String.valueOf(candidates.get(genre_index)));
+        Log.d("genre_index", String.valueOf(genre_index));
+        Log.d("genre", genre_name[genre_index]);
     }
 
     public void showTopic(){
@@ -343,10 +392,10 @@ public class ThemeActivity extends AppCompatActivity {
 
         // 選ばれたtopicを表示
         Log.d("selected_topic", genre[topic_index]);
-        topic_title.setText(genre_name.getString(genre_index));
+        topic_title.setText(genre_name[genre_index]);
         // 画像やcautionがあればそれに合わせてviewを表示
         str_divided = divideStr(genre[topic_index]);
-        Log.d("str_divide", String.valueOf(str_divided));
+//        Log.d("str_divide", Arrays.toString(str_divided));
         /* 画像があるパターン */
         if(str_divided[0].length() != 0) {
             topic.setVisibility(View.INVISIBLE);
@@ -364,7 +413,7 @@ public class ThemeActivity extends AppCompatActivity {
         }
 
         // もしtopicがQuizなら
-        if (genre_name.getString(genre_index).equals("Quiz")){
+        if (genre_name[genre_index].equals("Quiz")){
             annotation.setVisibility(View.VISIBLE);
             annotation.setText("Tap here to see the answer");
             annotation.setClickable(true);
@@ -379,7 +428,7 @@ public class ThemeActivity extends AppCompatActivity {
                                     annotation.setText("Answer");
                                     annotation.setClickable(false);
                                     // 答えが画像ならそれに合わせてviewを表示
-                                    str_divided = divideStr(quiz_answer.getString(topic_index));
+                                    str_divided = divideStr(quiz_answer[topic_index]);
                                     /* 画像が答えのパターン */
                                     if(str_divided[0].length() != 0){
                                         answer.setVisibility(View.INVISIBLE);
@@ -409,7 +458,7 @@ public class ThemeActivity extends AppCompatActivity {
             });
         }
         // もしtopicがPsychologyなら
-        if (genre_name.getString(genre_index).equals("Psychology")){
+        if (genre_name[genre_index].equals("Psychology")){
             // 選択肢を読み込み
             resourceId = getResources().getIdentifier("Psychology"+topic_index+"_choices", "array", getPackageName());
             psychology_choices = getResources().getStringArray(resourceId);
@@ -531,7 +580,7 @@ public class ThemeActivity extends AppCompatActivity {
         annotation.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // topicを表示
-                topic_title.setText(genre_name.getString(genre_index));
+                topic_title.setText(genre_name[genre_index]);
                 topic.setText(genre[topic_index]);
                 // 答えを非表示
                 answer.setVisibility(View.INVISIBLE);
