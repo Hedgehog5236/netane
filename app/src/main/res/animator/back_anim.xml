@@ -4,6 +4,6 @@
         android:propertyName="rotationY"
         android:valueFrom="-90"
         android:valueTo="0"
-        android:duration="300">
+        android:duration="150">
     </objectAnimator>
 </set>

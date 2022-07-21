@@ -171,7 +171,7 @@ public class HighLowActivity extends AppCompatActivity {
     public void selectCard() {
         // cardリストを初期化
         CardList = new ArrayList<>();
-        for (int num : IntStream.range(0, 2).boxed().collect(Collectors.toList())) {
+        for (int num : IntStream.range(0, 13).boxed().collect(Collectors.toList())) {
             for (String suit : new String[]{"heart", "diamond", "clover", "spade"}) {
                 CardList.add(new ArrayList<String>(Arrays.asList(suit , String.valueOf(num+1))));
             }

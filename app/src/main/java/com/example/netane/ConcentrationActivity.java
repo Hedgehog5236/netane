@@ -258,6 +258,8 @@ public class ConcentrationActivity extends AppCompatActivity {
         BackAnim.addListener(new AnimatorListenerAdapter() {
             public void onAnimationEnd(Animator animation) {
                 turnButtons(true);
+                // ボタンを無効化
+                view.setClickable(false);
                 if (TempCardsButton.size() == 2) { /* 2回目の選択なら */
                     doJudgement();
                 }
