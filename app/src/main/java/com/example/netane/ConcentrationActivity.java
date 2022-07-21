@@ -1,5 +1,9 @@
 package com.example.netane;
 
+import android.animation.Animator;
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -40,6 +44,9 @@ public class ConcentrationActivity extends AppCompatActivity {
     TextView center_tv, header, p1_card, p2_card;
     ImageView result;
 
+    // animator
+    AnimatorSet FrontAnim, BackAnim;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +60,6 @@ public class ConcentrationActivity extends AppCompatActivity {
         SLEEP_TIME = 1000; /* カードを裏返すまでの時間[ms] */
         FocusColor = Color.CYAN; /* 手番プレイヤー色 */
         NoneFocusColor = Color.TRANSPARENT; /* none手番プレイヤー色 */
-        player = 1;
-        count = 0;
         // viewをセット
         screen = findViewById(R.id.concentration_gameScreen);
         center_tv = findViewById(R.id.concentration_center_tv);
@@ -91,6 +96,9 @@ public class ConcentrationActivity extends AppCompatActivity {
 
     // 初期化
     public void init(){
+        // 変数初期化
+        player = 1;
+        count = 0;
         // 得点をリセット
         PlayerPoint = new ArrayList<>();
         // 選択したカードのボタンリストを初期化
@@ -211,9 +219,21 @@ public class ConcentrationActivity extends AppCompatActivity {
         imageButton.setVisibility(View.VISIBLE);
     }
 
-    // 正解時に加算エフェクトを実行
-    public void moveCards(ImageButton imageButton, int player_num){
+    // cardを返すアニメーションを実行
+    public void flipCard(ImageButton imageButton, int id, AnimatorSet front, AnimatorSet back){
+        // buttonを無効化
+        turnButtons(false);
+        front.setTarget(imageButton);
+        front.start();
 
+        // FrontAnimationが終了したら実行する内容
+        front.addListener(new AnimatorListenerAdapter() {
+           public void onAnimationEnd(Animator animation) {
+               imageButton.setBackgroundResource(id);
+               back.setTarget(imageButton);
+               back.start();
+           }
+        });
     }
 
     // cardをタップしたときの挙動
@@ -228,63 +248,81 @@ public class ConcentrationActivity extends AppCompatActivity {
         String suit = TempCard.get(0); /* 選んだカードのスート*/
         String num = TempCard.get(1); /* 選んだカードの数字*/
         resourceId = getResources().getIdentifier(suit + num, "drawable", getPackageName()); /* カードを表示するためのIDを取得 */
-        showCards((ImageButton) view, resourceId); /* カードを表示 */
 
-        if (TempCardsButton.size() == 2) { /* 2回目の選択なら */
-            // ボタンを無効化
-            turnButtons(false);
-            // 正解チェックを実行
-            boolean bool = checkCards();
-            if(bool){ /* 正解なら */
-                result.setImageResource(CorrectId);
-                // ポイントを加算
-                addPoint(player, POINT);
-                count++;
-                // 終了判定
-                if(count == NUM_CARD/2){
-                    // 結果発表
-                    makeResult();
-                    return;
+        // animatorをセット
+        FrontAnim = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(), R.animator.front_anim);
+        BackAnim = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(), R.animator.back_anim);
+        flipCard((ImageButton) view, resourceId, FrontAnim, BackAnim); /* カードを表示 */
+
+        // BackAnimationが終了したら実行する内容
+        BackAnim.addListener(new AnimatorListenerAdapter() {
+            public void onAnimationEnd(Animator animation) {
+                turnButtons(true);
+                if (TempCardsButton.size() == 2) { /* 2回目の選択なら */
+                    doJudgement();
                 }
-            }else {
-                result.setImageResource(MistakeId);
             }
-            // 結果を表示
-            result.setVisibility(View.VISIBLE);
+        });
+    }
 
-            // UI変更のために別スレッドを立てる
-            new Thread(new Runnable(){
-                public void run(){
-                    // Handlerを使用してメイン(UI)スレッドに処理を依頼する
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            result.setVisibility(View.INVISIBLE);
-                            if(bool){ /* 正解なら */
-                                // sleep_time秒待ってから選択したカードを非表示にする
-                                for(int i = 0; i < TempCardsButton.size(); i++){
-                                    sleep(SLEEP_TIME);
-                                    TempCardsButton.get(i).setVisibility(View.INVISIBLE);
-                                }
-                            }else{ /* 不正解なら */
-                                for(int i = 0; i < TempCardsButton.size(); i++) {
-                                    // sleep_time秒待ってからカードを裏返す
-                                    sleep(SLEEP_TIME);
-                                    showCards(TempCardsButton.get(i), BackCardId); /* 裏返す */
-                                }
-                                // プレイヤーをチェンジする
-                                playerChange(player);
-                            }
-                            // 選択したカード,ボタンリストをリセット
-                            TempCardsButton.clear();
-                            selectedCards.clear();
-                            // ボタンを有効化
-                            turnButtons(true);
-                        }
-                    });
-                }
-            }).start();
+    // 二枚目を引いた後にジャッジを実行する
+    public void doJudgement(){
+        // ボタンを無効化
+        turnButtons(false);
+        // 正解チェックを実行
+        boolean bool = checkCards();
+        if(bool){ /* 正解なら */
+            result.setImageResource(CorrectId);
+            // ポイントを加算
+            addPoint(player, POINT);
+            count++;
+            // 終了判定
+            if(count == NUM_CARD/2){
+                // 結果発表
+                makeResult();
+                return;
+            }
+        }else {
+            result.setImageResource(MistakeId);
         }
+        // 結果を表示
+        result.setVisibility(View.VISIBLE);
+
+        // UI変更のために別スレッドを立てる
+        new Thread(new Runnable(){
+            public void run(){
+                // Handlerを使用してメイン(UI)スレッドに処理を依頼する
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        result.setVisibility(View.INVISIBLE);
+                        if(bool){ /* 正解なら */
+                            TempCardsButton.forEach(item -> item.setVisibility(View.INVISIBLE));
+                        }else{ /* 不正解なら */
+                            playerChange(player);
+                        }
+                        // カードを裏返す(正解の場合も，下に記述のボタン有効化条件にアニメーションの終了をセットしているので仮想的にanimationを実行する)
+                        for(int i = 0; i < TempCardsButton.size(); i++) {
+                            sleep(SLEEP_TIME);
+                            // animatorをセット(敢えて引数で渡すことで同じアニメーションでもimageButtonごとに異なるアニメーションであることを明示している)
+                            FrontAnim = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(), R.animator.front_anim);
+                            BackAnim = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(), R.animator.back_anim);
+                            flipCard(TempCardsButton.get(i), BackCardId, FrontAnim, BackAnim); /* 裏返す */
+                        }
+                        // Animationが終了したらボタンを有効化
+                        BackAnim.addListener(new AnimatorListenerAdapter() {
+                            public void onAnimationEnd(Animator animation) {
+                                // ボタンを有効化
+                                turnButtons(true);
+                            }
+                        });
+                        // 選択したカード,ボタンリストをリセット
+                        TempCardsButton.clear();
+                        selectedCards.clear();
+                    }
+                });
+            }
+        }).start();
     }
 
     // 正解チェック
