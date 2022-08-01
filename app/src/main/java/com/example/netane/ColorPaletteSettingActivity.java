@@ -26,12 +26,6 @@ public class ColorPaletteSettingActivity extends AppCompatActivity {
             case R.id.Level3:
                 num_color = 3;
                 break;
-            case R.id.Level4:
-                num_color = 4;
-                break;
-            case R.id.Level5:
-                num_color = 5;
-                break;
             default:
                 throw new IllegalStateException("Unexpected value: " + view.getId());
         }

@@ -9,7 +9,7 @@
     tools:context=".ConcentrationActivity"
     android:orientation="vertical"
     android:weightSum="20"
-    android:background="@drawable/card_background"
+    android:background="@drawable/background_green"
     android:clickable="true"
     android:focusable="true">
 
