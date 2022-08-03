@@ -6,7 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".HitBlowSettingActivity"
-    android:weightSum="7.8">
+    android:weightSum="8"
+    android:background="@drawable/background_gradient1">
 
     <TextView
         android:layout_width="wrap_content"
@@ -17,7 +18,8 @@
         android:onClick="tapBack"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"></TextView>
+        android:layout_marginRight="10dp">
+    </TextView>
 
     <TextView
         android:id="@+id/textView"
@@ -49,10 +51,10 @@
 
         <Button
             android:id="@+id/HitBlow3"
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="80dp"
             android:fontFamily="@font/montserrat_alternates_medium_italic"
-            android:onClick="ColorPalette"
+            android:onClick="tapSize"
             android:text="Three"
             android:textColor="@color/black"
             android:textSize="30dp"
@@ -65,12 +67,12 @@
             app:strokeWidth="3dp"/>
 
         <Button
-            android:id="@+id/HitBlow5"
-            android:layout_width="150dp"
+            android:id="@+id/HitBlow4"
+            android:layout_width="wrap_content"
             android:layout_height="80dp"
             android:fontFamily="@font/montserrat_alternates_medium_italic"
-            android:onClick="ColorPalette"
-            android:text="Five"
+            android:onClick="tapSize"
+            android:text="Four"
             android:textColor="@color/black"
             android:textSize="30dp"
             android:layout_marginLeft="20dp"
@@ -88,7 +90,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:fontFamily="@font/montserrat_alternates_medium_italic"
-        android:text="Player 1 : Input your number"
+        android:text="Select &quot;Time limit (second)&quot;"
         android:textSize="25dp"
         android:gravity="center"/>
 
@@ -96,18 +98,78 @@
         android:id="@+id/num_box"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/HitBlow_limit30"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/montserrat_alternates_medium_italic"
+            android:onClick="tapLimit"
+            android:text="30"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+
+            app:backgroundTint="@color/white"
+            app:cornerRadius="10dp"
+            app:strokeColor="@color/orange"
+            app:strokeWidth="3dp"/>
+
+        <Button
+            android:id="@+id/HitBlow_limit60"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/montserrat_alternates_medium_italic"
+            android:onClick="tapLimit"
+            android:text="60"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+
+            app:backgroundTint="@color/white"
+            app:cornerRadius="10dp"
+            app:strokeColor="@color/violet"
+            app:strokeWidth="3dp"/>
+
+        <Button
+            android:id="@+id/HitBlow_limit120"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/montserrat_alternates_medium_italic"
+            android:onClick="tapLimit"
+            android:text="120"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+
+            app:backgroundTint="@color/white"
+            app:cornerRadius="10dp"
+            app:strokeColor="@color/red"
+            app:strokeWidth="3dp"/>
+
     </LinearLayout>
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6">
+    </Space>
+
     <Button
-        android:id="@+id/enter_num"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_gravity="center"
         android:fontFamily="@font/montserrat_alternates_medium_italic"
-        android:onClick="enter_num"
+        android:onClick="tapEnter"
         android:text="Enter"
         android:textColor="@color/black"
         android:textSize="30dp"

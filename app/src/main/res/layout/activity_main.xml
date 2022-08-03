@@ -86,7 +86,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/ShinkeiButton"
+            android:id="@+id/ConcentrationButton"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -96,7 +96,7 @@
             android:textSize="20dp"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp"
-            android:onClick="Shinkei"
+            android:onClick="Concentration"
 
             app:backgroundTint="@color/orange"
             app:cornerRadius="30dp"

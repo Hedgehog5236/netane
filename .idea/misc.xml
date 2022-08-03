@@ -39,11 +39,16 @@
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_theme.xml" value="0.21240942028985507" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/activity_theme_setting.xml" value="0.21240942028985507" />
         <entry key="..\:/Users/hedgehog/AndroidStudioProjects/netane/app/src/main/res/layout/circulbutton.xml" value="0.2359375" />
+        <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/drawable/back_space.xml" value="0.33" />
+        <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/drawable/black_corner_background.xml" value="0.2885" />
+        <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/drawable/blue_corner_background.xml" value="0.2885" />
         <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/drawable/border.xml" value="0.178" />
         <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/drawable/circle_button.xml" value="0.178" />
         <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/drawable/gradient_button_green.xml" value="0.178" />
         <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/drawable/gradient_button_red.xml" value="0.178" />
+        <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/drawable/info.xml" value="0.1185" />
         <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/drawable/off_white_background.xml" value="0.178" />
+        <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/drawable/res_round_rect.xml" value="0.171" />
         <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/drawable/rounded_button.xml" value="0.178" />
         <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/drawable/white_background.xml" value="0.1555" />
         <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/layout-v26/activity_theme.xml" value="0.3614583333333333" />
@@ -51,13 +56,19 @@
         <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/layout/activity_colorpalette_setting.xml" value="0.3625" />
         <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/layout/activity_concentraion.xml" value="0.33" />
         <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/layout/activity_highlow.xml" value="0.25" />
-        <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/layout/activity_hitblow.xml" value="0.3625" />
-        <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/layout/activity_hitblow_setting.xml" value="0.19427083333333334" />
+        <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/layout/activity_hitblow.xml" value="0.2" />
+        <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/layout/activity_hitblow_setting.xml" value="0.25" />
         <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/layout/activity_puzzle.xml" value="0.19427083333333334" />
         <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/layout/activity_puzzle_setting.xml" value="0.19427083333333334" />
         <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/layout/activity_setting.xml" value="0.25" />
         <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/layout/activity_theme.xml" value="0.25" />
+        <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/layout/custom_alert_dialog.xml" value="0.25" />
+        <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/layout/custom_alert_dialog1.xml" value="0.33" />
+        <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/layout/custom_alert_dialog2.xml" value="0.29743589743589743" />
+        <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/layout/custom_dialog.xml" value="0.1329059829059829" />
+        <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/layout/layout_custom_dialog.xml" value="0.13376068376068376" />
+        <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/layout/listview_row.xml" value="0.33" />
         <entry key="..\:/Users/hedgehog/StudioProjects/netane/app/src/main/res/xml/root_preferences.xml" value="0.15260416666666668" />
       </map>
     </option>

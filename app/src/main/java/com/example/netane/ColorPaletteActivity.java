@@ -100,7 +100,7 @@ public class ColorPaletteActivity extends AppCompatActivity implements View.OnCl
             @Override
             public void run() {
                 elapsedTime = System.currentTimeMillis() - startTime;
-                SimpleDateFormat sdf = new SimpleDateFormat("mm:ss.SSS", Locale.US);
+                SimpleDateFormat sdf = new SimpleDateFormat("mm:ss.SSS", Locale.getDefault());
                 clearTime.setText(sdf.format(elapsedTime));
                 handler.removeCallbacks(runnable);
                 handler.postDelayed(runnable, 10);

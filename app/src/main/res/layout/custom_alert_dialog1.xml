@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/res_round_rect"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/custom_alert_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text=""
+        tools:text="タイトル"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/custom_alert_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text=""
+        tools:text="メッセージ"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/custom_alert_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <View
+        android:id="@+id/custom_alert_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/gray"
+        app:layout_constraintTop_toBottomOf="@id/custom_alert_message" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/custom_alert_positive_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:padding="16dp"
+        android:gravity="center"
+        android:text="OK"
+        android:textColor="@color/purple_200"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/custom_alert_divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/custom_alert_negative_button"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <View
+        android:id="@+id/custom_alert_divider_button"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="@color/gray"
+        app:layout_constraintTop_toBottomOf="@id/custom_alert_divider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/custom_alert_negative_button"
+        app:layout_constraintEnd_toStartOf="@id/custom_alert_positive_button"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/custom_alert_negative_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:gravity="center"
+        android:text="Cancel"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/custom_alert_divider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/custom_alert_positive_button"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
